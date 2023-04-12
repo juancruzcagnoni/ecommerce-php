@@ -1,29 +1,54 @@
-// Colors 
+// Colors
 $yellow: #f0d042;
-$blue: #2841C4;
+$blue: #2841c4;
 $black: #141414;
 $white: #f7f7f7;
 
-// Normalize 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+// Normalize
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
-// Header 
-header{
-    background-color: $blue;
+// Header
+header {
+  background-color: $blue;
+  color: $white;
+  text-align: center;
+  padding: 0.5rem 0;
+
+  P {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  a {
     color: $white;
-    text-align: center;
-    padding: 0.5rem 0;
-
-    P{
-        font-size: 13px;
-        font-weight: 500;
-    }
-
-    a{
-        color: $white;
-    }
+  }
 }
+
+// Nav
+.nav-link {
+  font-size: 14px;
+}
+
+.nav-link:hover {
+  color: $blue;
+}
+
+// Home
+.carousel-item {
+  height: 60vh;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
