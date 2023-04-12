@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #2841C4;
+  color: #f7f7f7;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+header P {
+  font-size: 13px;
+  font-weight: 500;
+}
+header a {
+  color: #f7f7f7;
+}/*# sourceMappingURL=style.css.map */
