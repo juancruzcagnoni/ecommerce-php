@@ -8,6 +8,9 @@ $rutes = [
     'shop' => [
         'title' => 'Compra ahora',
     ],
+    'product-detail' => [
+        'title' => 'Ver producto',
+    ],
     'contact' => [
         'title' => 'Contactate',
     ],
@@ -44,7 +47,7 @@ $rutesConfig = $rutes[$view];
     <!-- Nav -->
     <nav class="navbar navbar-expand-md">
         <div class="container d-flex">
-            <a class="navbar-brand" href="index.php?s=home"><img src="img/logo.svg" alt="SmarTech logo" width="130"></a>
+            <a class="navbar-brand" href="index.php?s=home"><img src="img/logos/logo-smartech.svg" alt="SmarTech logo" width="130"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
