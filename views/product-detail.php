@@ -1,17 +1,13 @@
 <?php
-    require __DIR__ . "/../data/shop.php";
 
-    $id = $_GET['id'];
+require_once __DIR__ . "/../libraries/shop.php";
+// Pedimos el id del producto que nos piden mostrar.
+$id = $_GET['id'];
+$product = productId($id);
 
-    foreach($products as $thisProduct){
-        if ($thisProduct['product_id'] == $id) {
-            $product = $thisProduct;
-            break;
-        }
-    }
 ?>
 
 <div class="container">
-    <h1><?= $product['product_title'] ?></h1>
-    <p>Aca se va a ver el producto mas en detalle</p>
+    <h3><?= $product['product_title'] ?></h3>
+    <p>Aca se va a ver el producto <?= $product['product_title'] ?> mas en detalle...</p>
 </div>

@@ -15,7 +15,7 @@ $rutes = [
         'title' => 'Contactate',
     ],
 ];
-
+    
 $view = $_GET['s'] ?? 'home';
 
 $rutesConfig = $rutes[$view];
