@@ -51,4 +51,30 @@ header {
   }
 }
 
+// Shop
+.card{
+  height: 100%;
+}
+
+.product-title{
+  font-size: 14px;
+  color: $black;
+}
+
+.img-card-container{
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding: 1.5rem;
+  height: 75%;
+
+  img{
+    width: 70%;
+  }
+}
+
+.product-detail{
+  padding: 1rem;
+}
+
 

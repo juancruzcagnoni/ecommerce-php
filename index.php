@@ -1,5 +1,8 @@
 <!-- PHP -->
 <?php
+// Incluimos las classes
+require_once __DIR__ . '/classes/Shop.php';
+
 // Define los titulos de cada pagina.
 $rutes = [
     'home' => [
@@ -29,7 +32,7 @@ $rutesConfig = $rutes[$view];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $rutesConfig['title']; ?> | SmarTech</title>
-    <link rel="shortcut icon" href="img/logo-mini.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logos/logo-mini.svg" type="image/x-icon">
     <!-- Icons  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <!-- CSS Bootstrap  -->

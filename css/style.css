@@ -35,4 +35,28 @@ header a {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.card {
+  height: 100%;
+}
+
+.product-title {
+  font-size: 14px;
+  color: #141414;
+}
+
+.img-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  height: 75%;
+}
+.img-card-container img {
+  width: 70%;
+}
+
+.product-detail {
+  padding: 1rem;
 }/*# sourceMappingURL=style.css.map */
