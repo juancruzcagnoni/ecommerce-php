@@ -4,7 +4,7 @@ class Products
 {
 
     // Defino las propiedades.
-    public int $product_id;
+    public int    $product_id;
     public string $product_title;
     public string $description;
     public string $price;
@@ -13,9 +13,7 @@ class Products
     public string $seller;
 
     /**
-     * Obtiene todas las noticias.
-     * 
-     * @return Products[]  Un array con las noticias, cada una como un array.
+     * @return Products[]  
      */
 
     public function all(): array
@@ -45,15 +43,13 @@ class Products
     }
 
     /**
-     * Obtiene una noticia por su id.
-     * 
      * @param int $id
      * @return Products|null
      */
 
     public function byId(int $id): ?Products
     {
-        $products = $this -> all();
+        $products = $this->all();
 
         foreach ($products as $product) {
 

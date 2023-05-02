@@ -14,3 +14,64 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
     </button>
 </div>
+
+<section class="container home-benefits">
+    <div class="benefit">
+        <div class="icon-container">
+            <i class="bi bi-credit-card"></i>
+        </div>
+        <p>Todos los metodos de pago</p>
+    </div>
+    <div class="benefit">
+        <div class="icon-container">
+            <i class="bi bi-truck"></i>
+        </div>
+        <p>Envios a todo el mundo</p>
+    </div>
+    <div class="benefit">
+        <div class="icon-container">
+            <i class="bi bi-tag"></i>
+        </div>
+        <p>Los mejores precios</p>
+    </div>
+</section>
+
+<section class="container home-about">
+    <h3 class="title">CONOCE SMARTECH</h3>
+    <p>¡Bienvenido a Smartech! Somos tu tienda de confianza para todo lo relacionado con tecnología. Ofrecemos una amplia variedad de productos de última generación, desde celulares hasta computadoras, tablets y cámaras de fotos. Nuestro objetivo es brindarte la mejor experiencia de compra, con precios competitivos y un servicio al cliente excepcional. ¡Descubre lo último en tecnología!</p>
+    <img src="img/banner.jpg" class="img-fluid" alt="Banner Smartech">
+</section>
+
+<section class="container home-items">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <h4>Tecnología de calidad.</h4>
+                        <p>¡Por el mes de mayo tenes los mejores precios!</p>
+                        <a href="index.php?s=shop">Ver productos</a>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <img class="img-fluid" src="img/products/iphone-14.png" alt="Iphone 14">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <h4>Libre de impuestos.</h4>
+                        <p>¡Envios por correo argentino!</p>
+                        <a href="index.php?s=shop">Ver productos</a>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <img class="img-fluid" src="img/products/reloj-samsung.png" alt="Reloj Samsung">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

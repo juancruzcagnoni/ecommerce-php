@@ -1,0 +1,17 @@
+Carrera: Diseño y Programacion Web.
+
+Materia: Programacion II.
+
+Cuatrimestre: 3er cuatrimestre.
+
+Año: 2° Año.
+
+Turno: Mañana.
+
+Comisión: DWM3AP.
+
+Alumnos: Juan Cruz Cagnoni, Imanol Castro Gamero.
+
+Docente: Santiago Gallino.
+
+Caracter de entrega: Primer parcial.

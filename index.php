@@ -1,6 +1,6 @@
 <!-- PHP -->
 <?php
-// Incluimos las classes
+// Incluimos las classes.
 require_once __DIR__ . '/classes/Shop.php';
 
 // Define los titulos de cada pagina.
@@ -18,7 +18,7 @@ $rutes = [
         'title' => 'Contactate',
     ],
 ];
-    
+
 $view = $_GET['s'] ?? 'home';
 
 $rutesConfig = $rutes[$view];
@@ -44,7 +44,7 @@ $rutesConfig = $rutes[$view];
 <body>
     <!-- Header  -->
     <header>
-        <p class="m-0">ENVIO GRATIS PARA LAS COMPRAS + $10.000 | <a href="">COMPRA AHORA</a></p>
+        <p class="m-0">MAYO VINO CON DESCUENTOS % | <a href="index.php?s=shop">COMPRA AHORA</a></p>
     </header>
 
     <!-- Nav -->
@@ -73,8 +73,24 @@ $rutesConfig = $rutes[$view];
     </main>
 
     <!-- Footer  -->
-    <footer class="text-center p-5  ">
-        <p>&copy; Todos los derechos reservados. SmarTech.</p>
+    <footer class="p-5 footer">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <img src="img/logos/logo-smartech-wh.svg" alt="SmarTech logo" width="200">
+                <p class="m-0 w-50 mt-4">La mejor tecnologia y los mejores precios del mercado encontralos aca, en Smartech.</p>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="social">
+                    <i class="bi bi-instagram"></i>
+                    <i class="bi bi-facebook"></i>
+                    <i class="bi bi-youtube"></i>
+                    <i class="bi bi-twitter"></i>
+                </div>
+            </div>
+
+            <p class="text-center m-0 copy">&copy; Todos los derechos reservados. Smartech.</p>
+        </div>
     </footer>
 
     <!-- Javascript Bootstrap -->

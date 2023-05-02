@@ -5,17 +5,17 @@
     "description": "El iPhone 12 tiene una espectacular pantalla Super Retina XDR de 6.1 pulgadas. Un frente de Ceramic Shield, cuatro veces más resistente a las caídas. Modo Noche en todas las cámaras, para que puedas tomar fotos increíbles con poca luz. Grabación, edición y reproducción de video en Dolby Vision con calidad cinematográfica. Y el potente chip A14 Bionic. Además, es compatible con los nuevos accesorios MagSafe, que se acoplan fácilmente a tu iPhone y permiten una carga inalámbrica más rápida.",
     "price": 167610,
     "img": "img/products/iphone-12.png",
-    "categorie": "Phones",
-    "seller": "Delmax"
+    "categorie": "Celulares",
+    "seller": "TechZone"
   },
   {
     "product_id": 2,
-    "product_title": "Samsung Galaxy Watch 5",
+    "product_title": "Galaxy Watch 5",
     "description": "Destinado para fines generales de bienestar y estado físico solamente. No está diseñado para su uso en la detección, diagnóstico, tratamiento de cualquier condición médica o trastorno del sueño. Las medidas son solo para su referencia personal.",
     "price": 116800,
     "img": "img/products/reloj-samsung.png",
-    "categorie": "Watch",
-    "seller": "Delmax"
+    "categorie": "Relojes",
+    "seller": "DigitalWave"
   },
   {
     "product_id": 3,
@@ -23,17 +23,17 @@
     "description": "El iPhone 14 Pro Max te permite captar detalles increíbles gracias a su cámara gran angular de 48 MP. Además, trae la Dynamic Island y una pantalla siempre activa, para que puedas interactuar con tu iPhone de una forma completamente nueva. Y viene con Detección de Choques, una funcionalidad de seguridad que pide ayuda cuando no estás en condiciones de hacerlo.",
     "price": 210800,
     "img": "img/products/iphone-14.png",
-    "categorie": "Phones",
+    "categorie": "Celulares",
     "seller": "Delmax"
   },
   {
     "product_id": 4,
     "product_title": "Ipad Pro 12.9",
-    "description": "El Apple iPhone X es una demostración de fuerza de Apple, mostrando lo que es capaz de hacer y para celebrar los 10 años del iPhone. El iPhone X cuenta con una pantalla de 5.8 pulgadas que abarca todo el frente del teléfono, dejando un espacio arriba para acomodar todos los sensores que contribuyen a Face ID, el nuevo método de desbloqueo por rostro, ya que el botón Touch ID desaparece.",
+    "description": "Este producto combina la potencia y la capacidad de una computadora con la versatilidad y facilidad de uso que solo un iPad puede brindar. Realizar varias tareas a la vez, como editar documentos mientras buscás información en internet o sacarte una selfie, es sumamente sencillo. ",
     "price": 120580,
     "img": "img/products/ipad-pro.png",
     "categorie": "Tablets",
-    "seller": "Delmax"
+    "seller": "DigitalWave"
   },
   {
     "product_id": 5,
@@ -41,8 +41,8 @@
     "description": "El Apple iPhone X es una demostración de fuerza de Apple, mostrando lo que es capaz de hacer y para celebrar los 10 años del iPhone. El iPhone X cuenta con una pantalla de 5.8 pulgadas que abarca todo el frente del teléfono, dejando un espacio arriba para acomodar todos los sensores que contribuyen a Face ID, el nuevo método de desbloqueo por rostro, ya que el botón Touch ID desaparece.",
     "price": 144300,
     "img": "img/products/iphone-x.png",
-    "categorie": "Phones",
-    "seller": "Delmax"
+    "categorie": "Celulares",
+    "seller": "TechZone"
   },
   {
     "product_id": 6,
@@ -50,34 +50,34 @@
     "description": "La a7 II es la primera cámara de fotograma completo en el mundo1Se encuentra entre las cámaras digitales con lentes intercambiables que cuentan con un sensor de imágenes de fotograma completo de 35 mm. A partir de noviembre de 2014 en base a la investigación realizada por Sony.",
     "price": 354300,
     "img": "img/products/camara-sony.png",
-    "categorie": "Cameras",
+    "categorie": "Camaras",
     "seller": "Delmax"
   },
   {
     "product_id": 7,
     "product_title": "Apple Watch SE",
-    "description": "El nuevo Apple Watch SE tiene la misma pantalla Retina grande que el Watch Series 6, para que puedas ver aún más de un vistazo. Sensores avanzados para registrar todos tus objetivos de entrenamiento. E increíbles funciones para mantenerte sano y seguro.",
+    "description": "El nuevo Apple Watch SE tiene la misma pantalla Retina grande que el Relojes Series 6, para que puedas ver aún más de un vistazo. Sensores avanzados para registrar todos tus objetivos de entrenamiento. E increíbles funciones para mantenerte sano y seguro.",
     "price": 74500,
     "img": "img/products/reloj-apple.png",
-    "categorie": "Watch",
-    "seller": "Delmax"
+    "categorie": "Relojes",
+    "seller": "DigitalWave"
   },
   {
     "product_id": 8,
     "product_title": "Macbook Pro",
-    "description": "El Apple iPhone X es una demostración de fuerza de Apple, mostrando lo que es capaz de hacer y para celebrar los 10 años del iPhone. El iPhone X cuenta con una pantalla de 5.8 pulgadas que abarca todo el frente del teléfono, dejando un espacio arriba para acomodar todos los sensores que contribuyen a Face ID, el nuevo método de desbloqueo por rostro, ya que el botón Touch ID desaparece.",
+    "description": "La nueva MacBook Pro ofrece a los usuarios más pro un rendimiento revolucionario. Elige entre el chip M1 Pro o el aún más potente M1 Max para resolver las tareas profesionales más exigentes con una excepcional duración de la batería(1). Además, la MacBook Pro trae una espectacular pantalla Liquid Retina XDR de 16 pulgadas y puertos avanzados para sacarle más provecho que nunca.",
     "price": 220300,
     "img": "img/products/macbook-pro.png",
-    "categorie": "Computers",
-    "seller": "Delmax"
+    "categorie": "Computadoras",
+    "seller": "TechZone"
   },
   {
     "product_id": 9,
     "product_title": "Imac Pro",
-    "description": "El Apple iPhone X es una demostración de fuerza de Apple, mostrando lo que es capaz de hacer y para celebrar los 10 años del iPhone. El iPhone X cuenta con una pantalla de 5.8 pulgadas que abarca todo el frente del teléfono, dejando un espacio arriba para acomodar todos los sensores que contribuyen a Face ID, el nuevo método de desbloqueo por rostro, ya que el botón Touch ID desaparece.",
+    "description": "La iMac Pro es una computadora de escritorio todo-en-uno diseñada por Apple para usuarios profesionales que requieren un alto rendimiento en tareas de edición de video, animación, diseño gráfico y otras aplicaciones exigentes. Cuenta con una pantalla Retina 5K de 27 pulgadas, procesador Intel Xeon de hasta 18 núcleos, memoria RAM de hasta 256 GB y almacenamiento SSD de hasta 4 TB. Además, incorpora una tarjeta gráfica Radeon Pro Vega con hasta 16 GB de memoria HBM2.",
     "price": 290560,
     "img": "img/products/imac-pro.png",
-    "categorie": "Computers",
+    "categorie": "Computadoras",
     "seller": "Delmax"
   },
   {
@@ -86,17 +86,17 @@
     "description": "La Canon EOS 500D es una cámara réflex digital de nivel medio que ofrece una excelente calidad de imagen y una gran variedad de características avanzadas. Esta cámara cuenta con un sensor CMOS de 15.1 megapíxeles y un sistema de enfoque automático de 9 puntos que permite un enfoque rápido y preciso en una amplia variedad de situaciones.",
     "price": 390760,
     "img": "img/products/camara-canon.png",
-    "categorie": "Cameras",
-    "seller": "Delmax"
+    "categorie": "Camaras",
+    "seller": "DigitalWave"
   },
   {
     "product_id": 11,
-    "product_title": "Tablet Samsung Galaxy S7",
+    "product_title": "Samsung Galaxy S7",
     "description": "Esta tablet Samsung es la compañera ideal, con capacidad de sobra para cada una de tus actividades. El diseño delgado, compacto y portátil, con facilidad para sostener en una mano, lo convierte en una combinación perfecta de rendimiento y versatilidad.",
     "price": 230460,
     "img": "img/products/tablet-samsung.png",
     "categorie": "Tablets",
-    "seller": "Delmax"
+    "seller": "TechZone"
   },
   {
     "product_id": 12,
@@ -104,7 +104,7 @@
     "description": "Samsung Galaxy S23 Ultra con un procesador Octa-Core (3.36GHz,2.8GHz,2GHz) para que estés al día con todas las aplicaciones y juegos de última generación. Descubrí todas las posibilidades para tus foto, tanto de día como de noche, con la cámara de 200+10+10 MP. Memoria interna de 512 GB.",
     "price": 360780,
     "img": "img/products/galaxy-ultra.png",
-    "categorie": "Phones",
+    "categorie": "Celulares",
     "seller": "Delmax"
   }
 ]
