@@ -6,9 +6,13 @@
   font-family: "Inter", sans-serif;
 }
 
+body {
+  background-color: #EAEDED;
+}
+
 .title {
   color: #2841c4;
-  font-size: 26px;
+  font-size: 1.7rem;
   font-family: "Oswald", sans-serif;
   margin-bottom: 2rem;
 }
@@ -20,74 +24,24 @@ header {
   padding: 0.5rem 0;
 }
 header P {
-  font-size: 13px;
+  font-size: 0.8rem;
   font-weight: 500;
 }
 header a {
   color: #f7f7f7;
 }
 
+.navbar {
+  background-color: #f7f7f7;
+}
+
 .nav-link {
-  font-size: 14px;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .nav-link:hover {
   color: #2841c4;
-}
-
-.carousel-item {
-  height: 60vh;
-}
-.carousel-item img {
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.home-benefits {
-  padding: 4rem 0;
-  display: flex;
-  justify-content: center;
-}
-
-.benefit {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: 0 1rem;
-  width: 25%;
-  padding: 1rem;
-  text-align: center;
-  border-radius: 5px;
-  color: #141414;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-.icon-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  background-color: #2841c4;
-}
-.icon-container i {
-  color: #f7f7f7;
-  font-size: 2rem;
-}
-
-.home-about {
-  padding: 4rem 0;
-  text-align: center;
-}
-.home-about img {
-  margin-top: 2rem;
-  width: 70%;
-  border-radius: 15px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .home-items {
@@ -100,6 +54,9 @@ header a {
   color: #2841c4;
   font-weight: 600;
 }
+.home-items .card p {
+  margin-bottom: 2rem;
+}
 .home-items .card a {
   text-decoration: none;
   border: 1px solid #2841c4;
@@ -107,7 +64,31 @@ header a {
   background-color: transparent;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 1rem;
+}
+
+.home-items-2-container {
+  padding-bottom: 4rem;
+}
+
+.home-items-2 {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-items-cards {
+  display: flex;
+}
+.home-items-cards i {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: #2841c4;
+}
+.home-items-cards p {
+  font-size: 0.9rem;
+  margin: 0;
 }
 
 .card {
@@ -124,7 +105,6 @@ header a {
   padding: 1.5rem;
   height: 75%;
   border-bottom: 1px solid #dedede;
-  background-color: #f1f3fe;
   overflow: hidden;
 }
 .img-card-container img {
@@ -136,7 +116,7 @@ header a {
 }
 
 .product-title {
-  font-size: 18px;
+  font-size: 1.1rem;
   color: #141414;
   margin: 0;
   font-weight: 600;
@@ -144,7 +124,7 @@ header a {
 }
 
 .categorie {
-  font-size: 14px;
+  font-size: 0.9rem;
   margin-bottom: 1.5rem;
 }
 
@@ -154,7 +134,7 @@ header a {
   background-color: #2841c4;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 .price {
@@ -185,7 +165,7 @@ header a {
   background-color: #2841c4;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 .seller {
@@ -210,12 +190,23 @@ header a {
 .footer {
   background-color: #141414;
   color: #f7f7f7;
-  font-size: 14px;
+  font-size: 0.9rem;
+}
+
+.footer-first {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.footer-first p {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
 }
 
 .social {
   display: flex;
-  justify-content: end;
+  justify-content: center;
 }
 .social i {
   padding: 1rem;
@@ -225,4 +216,45 @@ header a {
 .copy {
   padding-top: 5rem;
   color: #4f4f4f;
+}
+
+.admin {
+  padding: 3rem 0;
+}
+
+table {
+  background-color: #f7f7f7;
+}
+
+th, td {
+  border: 1px solid #141414;
+  padding: 0.5rem 0.8rem;
+}
+
+td {
+  font-size: 0.9rem;
+}
+
+.td-img {
+  text-align: center;
+}
+.td-img img {
+  width: 50%;
+}
+
+.publish {
+  padding: 3rem 0;
+}
+
+@media (min-width: 576px) {
+  .footer-first {
+    align-items: start;
+  }
+  .footer-first p {
+    width: 50%;
+    text-align: left;
+  }
+  .social {
+    justify-content: end;
+  }
 }/*# sourceMappingURL=style.css.map */

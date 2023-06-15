@@ -15,9 +15,13 @@ $white: #f7f7f7;
   font-family: "Inter", sans-serif;
 }
 
+body{
+  background-color: #EAEDED;
+}
+
 .title{
   color: $blue;
-  font-size: 26px;
+  font-size: 1.7rem;
   font-family: 'Oswald', sans-serif;
   margin-bottom: 2rem;
 }
@@ -30,7 +34,7 @@ header {
   padding: 0.5rem 0;
 
   P {
-    font-size: 13px;
+    font-size: 0.8rem;
     font-weight: 500;
   }
 
@@ -40,8 +44,13 @@ header {
 }
 
 // Nav
+.navbar{
+  background-color: $white;
+}
+
 .nav-link {
-  font-size: 14px;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .nav-link:hover {
@@ -49,64 +58,6 @@ header {
 }
 
 // Home
-.carousel-item {
-  height: 60vh;
-
-  img {
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.home-benefits{
-  padding: 4rem 0;
-  display: flex;
-  justify-content: center;
-
-}
-
-.benefit{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: 0 1rem;
-  width: 25%;
-  padding: 1rem;
-  text-align: center;
-  border-radius: 5px; 
-  color: $black;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-.icon-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  background-color: $blue;
-
-  i{
-    color: $white;
-    font-size: 2rem;
-  }
-}
-
-.home-about{
-  padding: 4rem 0;
-  text-align: center;
-
-  img{
-    margin-top: 2rem;
-    width: 70%;
-    border-radius: 15px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  }
-}
-
 .home-items{
   padding: 4rem 0;
 
@@ -118,6 +69,10 @@ header {
       font-weight: 600;
     }
 
+    p{
+      margin-bottom: 2rem;
+    }
+
     a{
       text-decoration: none;
       border: 1px solid $blue;
@@ -125,8 +80,34 @@ header {
       background-color: transparent;
       padding: 0.5rem 1rem;
       border-radius: 5px;
-      font-size: 14px;
+      font-size: 1rem;
     }
+  }
+}
+
+.home-items-2-container{
+  padding-bottom: 4rem;
+}
+
+.home-items-2{
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-items-cards{
+  display: flex;
+
+  i{
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: $blue;
+  }
+
+  p{
+    font-size: 0.9rem;
+    margin: 0;
   }
 }
 
@@ -145,7 +126,6 @@ header {
   padding: 1.5rem;
   height: 75%;
   border-bottom: 1px solid #dedede;
-  background-color: #f1f3fe;
   overflow: hidden;
 
   img {
@@ -158,7 +138,7 @@ header {
 }
 
 .product-title {
-  font-size: 18px;
+  font-size: 1.1rem;
   color: $black;
   margin: 0;
   font-weight: 600;
@@ -166,7 +146,7 @@ header {
 }
 
 .categorie {
-  font-size: 14px;
+  font-size: 0.9rem;
   margin-bottom: 1.5rem;
 }
 
@@ -176,7 +156,7 @@ header {
   background-color: $blue;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 .price {
@@ -211,7 +191,7 @@ header {
     background-color: $blue;
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 0.9rem;
   }
 }
 
@@ -240,12 +220,24 @@ header {
 .footer{
   background-color: $black;
   color: $white;
-  font-size: 14px;
+  font-size: 0.9rem;
+}
+
+.footer-first{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  p{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+  }
 }
 
 .social{
   display: flex;
-  justify-content: end;
+  justify-content: center;
 
   i{
     padding: 1rem;
@@ -257,5 +249,53 @@ header {
   padding-top: 5rem;
   color: #4f4f4f;
 }
+
+// Admin
+.admin{
+  padding: 3rem 0;
+}
+
+table{
+  background-color: $white;
+}
+
+th, td{
+  border: 1px solid $black;
+  padding: 0.5rem 0.8rem;
+}
+
+td{
+  font-size: 0.9rem;
+}
+
+.td-img{
+  text-align: center;
+
+  img{
+    width: 50%;
+  }
+}
+
+// Publish
+.publish{
+  padding: 3rem 0;
+}
+
+// Mediaqueries 
+@media (min-width: 576px) {
+  .footer-first{
+    align-items: start;
+    
+    p{
+      width: 50%;
+      text-align: left;
+    }
+  }
+
+  .social{
+    justify-content: end;
+  }
+}
+
 
 

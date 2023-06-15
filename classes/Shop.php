@@ -1,63 +1,126 @@
 <?php
 
-class Products
+class Shop 
 {
-
-    // Defino las propiedades.
-    public int    $product_id;
-    public string $product_title;
-    public string $description;
-    public string $price;
-    public string $img;
-    public string $categorie;
-    public string $seller;
+    // Definimos las propiedades.
+    private int $producto_id;
+    private string $nombre;
+    private string $descripcion;
+    private string $precio;
+    private string $stock;
+    private string $imagen;
+    private string $imagen_desc;
 
     /**
-     * @return Products[]  
+     * Obtiene todos los productos.
+     * 
+     * @return Shop[]
      */
-
-    public function all(): array
+    public function all(): array 
     {
-        $archiveName = __DIR__ . "/../data/shop.json";
-        $content = file_get_contents($archiveName);
-        $data = json_decode($content, true);
+        // Traemos los productos de la base de datos.
+        $db = (new DB)->getConexion();
 
-        // Array para retornar los productos 
-        $products = [];
+        $query = "SELECT * FROM productos";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
 
-        foreach ($data as $date) {
-
-            $product = new Products();
-            $product->product_id     = $date['product_id'];
-            $product->product_title  = $date['product_title'];
-            $product->description    = $date['description'];
-            $product->price          = $date['price'];
-            $product->img            = $date['img'];
-            $product->categorie      = $date['categorie'];
-            $product->seller         = $date['seller'];
-
-            $products[] = $product;
-        }
-
-        return $products;
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Shop::class);
+        // Retornamos todos los registros como un array usando fetchAll().
+        return $stmt->fetchAll();
     }
 
     /**
+     * Obtiene el producto por su id.
+     * 
      * @param int $id
-     * @return Products|null
+     * @return Shop|null
      */
-
-    public function byId(int $id): ?Products
+    public function byId(int $id): ?Shop 
     {
-        $products = $this->all();
+        $db = (new DB)->getConexion();
 
-        foreach ($products as $product) {
+        // Uso de holders.
+        $query = "SELECT * FROM productos
+                WHERE producto_id = ?";
+        $stmt = $db->prepare($query);
+        $stmt->execute([$id]);
 
-            if ($product->product_id == $id) {
-                return $product;
-            }
-        }
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Shop::class);
+        $producto = $stmt->fetch();
 
-        return null;
+        if(!$producto) return null;
+
+        return $producto;
+    }
+
+    public function getProductId(): int
+    {
+        return $this->producto_id;
+    }
+
+    public function setProductoId(int $producto_id)
+    {
+        $this->producto_id = $producto_id;
+    }
+
+    public function getName(): string
+    {
+        return $this->nombre;
+    }
+
+    public function setName(string $nombre)
+    {
+        $this->nombre = $nombre;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescription(string $descripcion)
+    {
+        $this->descripcion = $descripcion;
+    }
+
+    public function getPrice(): int
+    {
+        return $this->precio;
+    }
+
+    public function setPrice(int $precio)
+    {
+        $this->precio = $precio;
+    }
+
+    public function getStock(): int
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock)
+    {
+        $this->stock = $stock;
+    }
+
+    public function getImage(): string
+    {
+        return $this->imagen;
+    }
+
+    public function setImage(string $imagen)
+    {
+        $this->imagen = $imagen;
+    }
+
+    public function getImagenDescripcion(): string
+    {
+        return $this->imagen_desc;
+    }
+
+    public function setImagenDescripcion(string $imagen_desc)
+    {
+        $this->imagen_desc = $imagen_desc;
     }
 }

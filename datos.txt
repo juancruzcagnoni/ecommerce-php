@@ -10,8 +10,8 @@ Turno: Mañana.
 
 Comisión: DWM3AP.
 
-Alumnos: Juan Cruz Cagnoni, Imanol Castro Gamero.
+Alumnos: Juan Cruz Cagnoni, Imanol Castro Gamero, Olivia Ferrari.
 
 Docente: Santiago Gallino.
 
-Caracter de entrega: Primer parcial.
+Caracter de entrega: Segundo parcial.
