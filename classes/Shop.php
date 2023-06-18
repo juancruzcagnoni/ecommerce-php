@@ -8,8 +8,8 @@ class Shop
     private string $descripcion;
     private string $precio;
     private string $stock;
-    private string $imagen;
-    private string $imagen_desc;
+    private ?string $imagen;
+    private ?string $imagen_desc;
 
     /**
      * Obtiene todos los productos.
@@ -52,6 +52,23 @@ class Shop
         if(!$producto) return null;
 
         return $producto;
+    }
+
+    public function create(array $data) 
+    {
+        $db = (new DB)->getConexion();
+        $query = "INSERT INTO productos (vendedor_fk, nombre, descripcion, precio, stock, imagen, imagen_desc)
+                    VALUES (:vendedor_fk, :nombre, :descripcion, :precio, :stock, :imagen, :imagen_desc)";
+        $stmt = $db->prepare($query);
+        $stmt->execute([
+            'vendedor_fk'  => $data['vendedor_fk'],
+            'nombre'       => $data['nombre'],
+            'descripcion'  => $data['descripcion'],
+            'precio'       => $data['precio'],
+            'stock'        => $data['stock'],
+            'imagen'       => $data['imagen'],
+            'imagen_desc'  => $data['imagen_desc'],
+        ]);
     }
 
     public function getProductId(): int
@@ -104,22 +121,22 @@ class Shop
         $this->stock = $stock;
     }
 
-    public function getImage(): string
+    public function getImage(): ?string
     {
         return $this->imagen;
     }
 
-    public function setImage(string $imagen)
+    public function setImage(?string $imagen)
     {
         $this->imagen = $imagen;
     }
 
-    public function getImagenDescripcion(): string
+    public function getImagenDescripcion(): ?string
     {
         return $this->imagen_desc;
     }
 
-    public function setImagenDescripcion(string $imagen_desc)
+    public function setImagenDescripcion(?string $imagen_desc)
     {
         $this->imagen_desc = $imagen_desc;
     }

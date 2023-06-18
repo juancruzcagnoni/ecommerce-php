@@ -2,7 +2,7 @@
     <div class="container">
         <h1 class="title">Publicar producto</h1>
 
-        <form action="" method="post">
+        <form action="actions/action-publish.php" method="post" enctype="multipart/form-data">
             <div>
                 <label for="nombre">Nombre de el producto</label>
                 <input type="text" id="nombre" name="nombre" class="form-control">
@@ -24,8 +24,8 @@
                 <input type="file" id="imagen" name="imagen" class="form-control">
             </div>
             <div>
-                <label for="imagen_descripcion">Descripcion de la imagen</label>
-                <textarea type="text" id="imagen_descripcion" name="imagen_descripcion" class="form-control"></textarea>
+                <label for="imagen_desc">Descripcion de la imagen</label>
+                <textarea type="text" id="imagen_desc" name="imagen_desc" class="form-control"></textarea>
             </div>
 
             <button type="submit">Publicar</button>

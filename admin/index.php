@@ -12,7 +12,7 @@ $rutes = [
     'log-in' => [
         'title' => 'Iniciar Sesion',
     ],
-    'shop' => [
+    'products' => [
         'title' => 'Compra ahora',
     ],
     'publish-product' => [
@@ -53,7 +53,7 @@ $rutesConfig = $rutes[$view];
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link" href="index.php?s=dashboard">Tablero</a>
-                    <a class="nav-link" href="index.php?s=shop">Tienda</a>
+                    <a class="nav-link" href="index.php?s=products">Productos</a>
                 </div>
             </div>
         </div>
