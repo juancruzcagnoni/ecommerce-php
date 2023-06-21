@@ -66,13 +66,22 @@ $rutesConfig = $rutes[$view];
         </div>
     </nav>
 
-    <!-- Mensaje de feedback -->
+    <!-- Mensajes de feedback -->
     <?php
         if (isset($_SESSION['mensajeExito'])):
     ?>
     <div class="success"><?= $_SESSION['mensajeExito'];?></div>
     <?php
         unset($_SESSION['mensajeExito']);
+        endif;
+    ?>
+
+    <?php
+        if (isset($_SESSION['mensajeError'])):
+    ?>
+    <div class="fail"><?= $_SESSION['mensajeError'];?></div>
+    <?php
+        unset($_SESSION['mensajeError']);
         endif;
     ?>
 

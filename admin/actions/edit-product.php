@@ -76,6 +76,11 @@ try {
         'imagen_desc'  => $imagen_desc,
     ]);
 
+    // Si la imagen fue editada, borramos la imagen vieja.
+    if (isset($nombreImagen) && $producto->getImage() !== null) {
+        unlink(__DIR__ . '/../../' . $producto->getImage());   
+    }
+
     // Mensaje de feedback.
     $_SESSION['mensajeExito'] = '<i class="bi bi-check"></i> El producto <b>' . $nombre . '</b> fue editado exitosamente.';
 

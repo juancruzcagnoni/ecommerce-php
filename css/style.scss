@@ -26,7 +26,7 @@ body {
   margin-bottom: 2rem;
 }
 
-.title-detail{
+.title-detail {
   font-weight: 600;
   font-size: 1.7rem;
 }
@@ -304,7 +304,7 @@ td {
   text-decoration: none;
 }
 
-.delete-confirm{
+.delete-confirm {
   border: none;
   color: rgb(181, 9, 9);
   background-color: rgb(241, 183, 183);
@@ -328,7 +328,7 @@ td {
   text-decoration: none;
 }
 
-.img-edit{
+.img-edit {
   height: 10rem;
 }
 
@@ -368,6 +368,14 @@ td {
   width: 100%;
 }
 
+.fail{
+  background-color: rgb(241, 183, 183);
+  color: rgb(181, 9, 9);
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
 .error {
   font-size: 0.9rem;
   color: rgb(181, 9, 9);
@@ -378,6 +386,28 @@ td {
 .small {
   font-size: 0.9rem;
   font-weight: 500;
+}
+
+// Log in
+.log-form{
+  width: 80%;
+  margin: 0 auto;
+
+  label{
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+}
+
+.log-btn {
+  border: none;
+  color: $white;
+  background-color: $blue;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
 }
 
 // Mediaqueries
