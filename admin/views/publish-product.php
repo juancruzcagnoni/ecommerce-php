@@ -58,6 +58,7 @@
                     id="precio" 
                     name="precio" 
                     class="form-control"
+                    value="<?= $oldData['precio'] ?? null; ?>"
                     <?php if(isset($errores['precio'])): ?> aria-describedby="error-precio"> <?php endif; ?>
 
                 <?php if(isset($errores['precio'])): ?>
@@ -70,7 +71,8 @@
                     type="number" 
                     id="stock" 
                     name="stock" 
-                    class="form-control">
+                    class="form-control"
+                    value="<?= $oldData['stock'] ?? null; ?>">
             </div>
             <div>
                 <label for="imagen">Imagen</label>

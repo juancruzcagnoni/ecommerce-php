@@ -318,6 +318,20 @@ td {
   width: 100%;
 }
 
+.edit {
+  border: none;
+  color: #2841c4;
+  background-color: #cad1f4;
+  padding: 0.4rem 0.9rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.img-edit{
+  height: 10rem;
+}
+
 // Publish
 .publish {
   padding: 3rem 0;

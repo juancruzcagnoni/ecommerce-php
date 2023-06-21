@@ -71,6 +71,29 @@ class Shop
         ]);
     }
 
+    public function edit(int $id, array $data)
+    {
+        $db = (new DB)->getConexion();
+        $query = "UPDATE productos
+                    SET nombre        = :nombre,
+                        descripcion   = :descripcion,
+                        precio        = :precio,
+                        stock         = :stock,
+                        imagen        = :imagen,
+                        imagen_desc   = :imagen_desc
+                    WHERE producto_id = :producto_id;";
+        $stmt = $db->prepare($query);
+        $stmt->execute([
+            'nombre'       => $data['nombre'],
+            'descripcion'  => $data['descripcion'],
+            'precio'       => $data['precio'],
+            'stock'        => $data['stock'],
+            'imagen'       => $data['imagen'],
+            'imagen_desc'  => $data['imagen_desc'],
+            'producto_id'  => $id,
+        ]);
+    }
+
     public function eliminar(int $id)
     {
         $db = (new DB)->getConexion();

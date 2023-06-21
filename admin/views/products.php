@@ -32,7 +32,8 @@
                     <td><?= $product->getStock();?></td>
                     <td class="td-img"><img class="img-fluid" src="<?= '../' . $product->getImage();?>" alt="<?= $product->getImagenDescripcion();?>"></td>
                     <td>
-                        <a class="delete" href="index.php?s=delete-product&id=<?=$product->getProductId();?>">Eliminar</a>
+                        <div class="mb-3"><a class="edit" href="index.php?s=edit-product&id=<?=$product->getProductId();?>">Editar</a></div>
+                        <div><a class="delete" href="index.php?s=delete-product&id=<?=$product->getProductId();?>">Eliminar</a></div>
                     </td>
                 </tr>
                 <?php endforeach; ?>

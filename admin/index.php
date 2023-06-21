@@ -19,6 +19,9 @@ $rutes = [
     'publish-product' => [
         'title' => 'Publicar producto',
     ],
+    'edit-product' => [
+        'title' => 'Editar producto',
+    ],
     'delete-product' => [
         'title' => 'Eliminar producto',
     ],
