@@ -17,7 +17,7 @@ $product = (new Shop)->byId($id);
 
         <div class="col-12 col-md-5">
             <div class="product-details-view">
-                <h1><?= $product->getName() ?></h1>
+                <h1 class="title-detail"><?= $product->getName() ?></h1>
                 <p><?= $product->getDescription() ?></p>
                 <div class="d-flex justify-content-between mt-5">
                     <p class="price-detail">$<?= $product->getPrice() ?></p>

@@ -5,7 +5,7 @@ $black: #141414;
 $white: #f7f7f7;
 
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@400;500&display=swap");
 
 // Normalize
 * {
@@ -15,15 +15,20 @@ $white: #f7f7f7;
   font-family: "Inter", sans-serif;
 }
 
-body{
-  background-color: #EAEDED;
+body {
+  background-color: #eaeded;
 }
 
-.title{
+.title {
   color: $blue;
   font-size: 1.7rem;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   margin-bottom: 2rem;
+}
+
+.title-detail{
+  font-weight: 600;
+  font-size: 1.7rem;
 }
 
 // Header
@@ -44,7 +49,7 @@ header {
 }
 
 // Nav
-.navbar{
+.navbar {
   background-color: $white;
 }
 
@@ -58,22 +63,22 @@ header {
 }
 
 // Home
-.home-items{
+.home-items {
   padding: 4rem 0;
 
-  .card{
+  .card {
     padding: 2rem;
 
-    h4{
+    h4 {
       color: $blue;
       font-weight: 600;
     }
 
-    p{
+    p {
       margin-bottom: 2rem;
     }
 
-    a{
+    a {
       text-decoration: none;
       border: 1px solid $blue;
       color: $blue;
@@ -85,27 +90,27 @@ header {
   }
 }
 
-.home-items-2-container{
+.home-items-2-container {
   padding-bottom: 4rem;
 }
 
-.home-items-2{
+.home-items-2 {
   padding: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.home-items-cards{
+.home-items-cards {
   display: flex;
 
-  i{
+  i {
     font-size: 2rem;
     margin-right: 1rem;
     color: $blue;
   }
 
-  p{
+  p {
     font-size: 0.9rem;
     margin: 0;
   }
@@ -165,7 +170,7 @@ header {
 }
 
 // Detail view
-.product-detail-section{
+.product-detail-section {
   padding: 5rem 0;
 }
 
@@ -204,98 +209,175 @@ header {
 }
 
 // Contacto
-.form{
+.form {
   padding: 5rem 0;
   margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  label{
+  label {
     color: $blue;
   }
 }
 
 // Footer
-.footer{
+.footer {
   background-color: $black;
   color: $white;
   font-size: 0.9rem;
 }
 
-.footer-first{
+.footer-first {
   display: flex;
   align-items: center;
   flex-direction: column;
 
-  p{
+  p {
     text-align: center;
     margin-top: 2rem;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
   }
 }
 
-.social{
+.social {
   display: flex;
   justify-content: center;
 
-  i{
+  i {
     padding: 1rem;
     font-size: 1.5rem;
   }
 }
 
-.copy{
+.copy {
   padding-top: 5rem;
   color: #4f4f4f;
 }
 
 // Admin
-.admin{
+.admin {
   padding: 3rem 0;
 }
 
-table{
+.publish-btn {
+  a {
+    border: none;
+    background-color: $blue;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+table {
   background-color: $white;
 }
 
-th, td{
+th,
+td {
   border: 1px solid $black;
   padding: 0.5rem 0.8rem;
 }
 
-td{
+td {
   font-size: 0.9rem;
 }
 
-.td-img{
+.td-img {
   text-align: center;
 
-  img{
+  img {
     width: 50%;
   }
 }
 
-// Publish
-.publish{
-  padding: 3rem 0;
+.delete {
+  border: none;
+  color: rgb(181, 9, 9);
+  background-color: rgb(241, 183, 183);
+  padding: 0.4rem 0.9rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  text-decoration: none;
 }
 
-// Mediaqueries 
+.delete-confirm{
+  border: none;
+  color: rgb(181, 9, 9);
+  background-color: rgb(241, 183, 183);
+  padding: 0.4rem 0.9rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+// Publish
+.publish {
+  padding: 3rem 0;
+
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+
+    label {
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    button {
+      border: none;
+      color: $white;
+      background-color: $blue;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+  }
+}
+
+.success {
+  background-color: #c2f3c2;
+  color: #033d03;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.error {
+  font-size: 0.9rem;
+  color: rgb(181, 9, 9);
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.small {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+// Mediaqueries
 @media (min-width: 576px) {
-  .footer-first{
+  .footer-first {
     align-items: start;
-    
-    p{
+
+    p {
       width: 50%;
       text-align: left;
     }
   }
 
-  .social{
+  .social {
     justify-content: end;
   }
 }
-
-
-

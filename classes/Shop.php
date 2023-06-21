@@ -71,6 +71,15 @@ class Shop
         ]);
     }
 
+    public function eliminar(int $id)
+    {
+        $db = (new DB)->getConexion();
+        $query = "DELETE FROM productos
+                    WHERE producto_id = ?";
+        $stmt = $db->prepare($query);
+        $stmt->execute([$id]);
+    }
+
     public function getProductId(): int
     {
         return $this->producto_id;

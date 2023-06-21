@@ -1,6 +1,7 @@
 <!-- PHP -->
 <?php
 // Incluimos las classes.
+session_start();
 require_once __DIR__ . '/../classes/DB.php';
 require_once __DIR__ . '/../classes/Shop.php';
 
@@ -17,6 +18,9 @@ $rutes = [
     ],
     'publish-product' => [
         'title' => 'Publicar producto',
+    ],
+    'delete-product' => [
+        'title' => 'Eliminar producto',
     ],
 ];
 
@@ -58,6 +62,16 @@ $rutesConfig = $rutes[$view];
             </div>
         </div>
     </nav>
+
+    <!-- Mensaje de feedback -->
+    <?php
+        if (isset($_SESSION['mensajeExito'])):
+    ?>
+    <div class="success"><?= $_SESSION['mensajeExito'];?></div>
+    <?php
+        unset($_SESSION['mensajeExito']);
+        endif;
+    ?>
 
     <!-- Content  -->
     <main class="main-content">

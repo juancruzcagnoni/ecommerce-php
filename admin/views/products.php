@@ -4,9 +4,9 @@
 
 <section class="admin">
     <div class="container">
-        <h1 class="title">Tablero de administracion</h1>
+        <h1 class="title">Tablero de administración</h1>
 
-        <div class="mb-4">
+        <div class="mb-4 publish-btn">
             <a href="index.php?s=publish-product">Publicar producto</a>
         </div>
         
@@ -31,7 +31,9 @@
                     <td>$<?= $product->getPrice();?></td>
                     <td><?= $product->getStock();?></td>
                     <td class="td-img"><img class="img-fluid" src="<?= '../' . $product->getImage();?>" alt="<?= $product->getImagenDescripcion();?>"></td>
-                    <td></td>
+                    <td>
+                        <a class="delete" href="index.php?s=delete-product&id=<?=$product->getProductId();?>">Eliminar</a>
+                    </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
