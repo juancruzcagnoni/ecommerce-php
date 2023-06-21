@@ -31,23 +31,6 @@ body {
   font-size: 1.7rem;
 }
 
-// Header
-header {
-  background-color: $blue;
-  color: $white;
-  text-align: center;
-  padding: 0.5rem 0;
-
-  P {
-    font-size: 0.8rem;
-    font-weight: 500;
-  }
-
-  a {
-    color: $white;
-  }
-}
-
 // Nav
 .navbar {
   background-color: $white;

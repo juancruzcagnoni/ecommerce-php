@@ -22,20 +22,6 @@ body {
   font-size: 1.7rem;
 }
 
-header {
-  background-color: #2841c4;
-  color: #f7f7f7;
-  text-align: center;
-  padding: 0.5rem 0;
-}
-header P {
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-header a {
-  color: #f7f7f7;
-}
-
 .navbar {
   background-color: #f7f7f7;
 }

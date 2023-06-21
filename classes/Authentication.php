@@ -3,14 +3,7 @@ class Authentication
 {
     public function authenticate(string $email, string $password): bool{
         // Buscamos el usuario.
-        $db = (new DB)->getConexion(); 
-        $query = "SELECT * FROM vendedores
-                    WHERE email = ?";
-        $stmt = $db->prepare($query);
-        $stmt->execute([$email]);
-
-        $stmt->setFetchMode(PDO::FETCH_CLASS, Vendedor::class);
-        $vendedor = $stmt->fetch();
+        $vendedor = (new Vendedor)->byEmail($email);
 
         // Preguntamos si el vendedor existe.
         if (!$vendedor) {
@@ -27,12 +20,12 @@ class Authentication
         return true;
     }
     
-    public function logOut(){
-
+    public function logOut(): void{
+        unset($_SESSION['vendedor_id']);
     }
     
-    public function isAuthenticated(){
-
+    public function isAuthenticated(): bool{
+        return isset($_SESSION['vendedor_id']);
     }
 
     public function markAsAuthenticated(Vendedor $vendedor): void{

@@ -6,6 +6,23 @@
         private string $email;
         private string $password;
 
+        public function byEmail(string $email): ?Vendedor{
+            $db = (new DB)->getConexion(); 
+            $query = "SELECT * FROM vendedores
+                        WHERE email = ?";
+            $stmt = $db->prepare($query);
+            $stmt->execute([$email]);
+    
+            $stmt->setFetchMode(PDO::FETCH_CLASS, Vendedor::class);
+            $vendedor = $stmt->fetch();
+
+            if (!$vendedor) {
+                return null;
+            }
+
+            return $vendedor;
+        }
+
         public function getVendedorId(): int
         {
             return $this->vendedor_id;

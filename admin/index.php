@@ -4,32 +4,49 @@
 session_start();
 require_once __DIR__ . '/../classes/DB.php';
 require_once __DIR__ . '/../classes/Shop.php';
+require_once __DIR__ . '/../classes/Authentication.php';
 
 // Define los titulos de cada pagina.
 $rutes = [
-    'dashboard' => [
-        'title' => 'Tablero de Administracion',
-    ],
     'log-in' => [
-        'title' => 'Iniciar Sesion',
+        'title' => 'Iniciar sesion',
+    ],
+    'dashboard' => [
+        'title' => 'Tablero de administracion',
+        'requireAuthentication' => true,
     ],
     'products' => [
-        'title' => 'Compra ahora',
+        'title' => 'Administrar productos',
+        'requireAuthentication' => true,
     ],
     'publish-product' => [
         'title' => 'Publicar producto',
+        'requireAuthentication' => true,
     ],
     'edit-product' => [
         'title' => 'Editar producto',
+        'requireAuthentication' => true,
     ],
     'delete-product' => [
         'title' => 'Eliminar producto',
+        'requireAuthentication' => true,
     ],
 ];
 
 $view = $_GET['s'] ?? 'dashboard';
 
 $rutesConfig = $rutes[$view];
+
+// Creamos la autenticación.
+$autenticacion = new Authentication;
+
+$requireAuthentication = $rutesConfig['requireAuthentication'] ?? false;
+if ($requireAuthentication && !$autenticacion->isAuthenticated()) {
+    $_SESSION['mensajeError'] = 'Se requiere que inicie sesión para acceder a esta pantalla.';
+    header ("Location: index.php?s=log-in");
+    exit;
+}
+
 ?>
 
 <!-- HTML -->
@@ -58,10 +75,17 @@ $rutesConfig = $rutes[$view];
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <?php if ($autenticacion->isAuthenticated()):?>
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link" href="index.php?s=dashboard">Tablero</a>
                     <a class="nav-link" href="index.php?s=products">Productos</a>
+                    <p>
+                        <form action="actions/log-out.php" method="post">
+                            <button class="nav-link" type="submit">Cerrar sesión</button>
+                        </form>
+                    </p>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </nav>
