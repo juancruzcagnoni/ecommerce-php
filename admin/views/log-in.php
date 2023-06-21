@@ -1,5 +1,5 @@
 <section class="container">
-    <h1 class="title mt-3">Ingresar al panel de administracion</h1>
+    <h1 class="title mt-3">Ingresar al panel de administración</h1>
 
     <form action="actions/log-in.php" method="post" class="log-form">
         <div>

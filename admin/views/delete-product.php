@@ -1,4 +1,6 @@
 <?php
+use App\Models\Shop;
+
 $producto = (new Shop)->byId($_GET['id']);
 ?>
 <section class="container">

@@ -1,8 +1,8 @@
 <!-- PHP -->
 <?php
 // Incluimos las classes.
-require_once __DIR__ . '/classes/DB.php';
-require_once __DIR__ . '/classes/Shop.php';
+require_once __DIR__ . '/classes/Database/DB.php';
+require_once __DIR__ . '/classes/Models/Shop.php';
 
 // Define los titulos de cada pagina.
 $rutes = [

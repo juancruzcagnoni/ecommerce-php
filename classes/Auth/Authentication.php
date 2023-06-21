@@ -1,4 +1,8 @@
 <?php
+namespace App\Auth;
+
+use App\Models\Vendedor;
+
 class Authentication
 {
     public function authenticate(string $email, string $password): bool{
@@ -30,5 +34,11 @@ class Authentication
 
     public function markAsAuthenticated(Vendedor $vendedor): void{
         $_SESSION['vendedor_id'] = $vendedor->getVendedorId();
+    }
+
+    public function getVendedor(): ?Vendedor{
+        if (!$this->isAuthenticated()) return null;
+
+        return (new Vendedor)->byId($_SESSION['vendedor_id']);
     }
 }

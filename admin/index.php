@@ -2,9 +2,10 @@
 <?php
 // Incluimos las classes.
 session_start();
-require_once __DIR__ . '/../classes/DB.php';
-require_once __DIR__ . '/../classes/Shop.php';
-require_once __DIR__ . '/../classes/Authentication.php';
+require_once __DIR__ . '/../classes/Database/DB.php';
+require_once __DIR__ . '/../classes/Models/Shop.php';
+require_once __DIR__ . '/../classes/Models/Vendedor.php';
+require_once __DIR__ . '/../classes/Auth/Authentication.php';
 
 // Define los titulos de cada pagina.
 $rutes = [
@@ -38,7 +39,7 @@ $view = $_GET['s'] ?? 'dashboard';
 $rutesConfig = $rutes[$view];
 
 // Creamos la autenticación.
-$autenticacion = new Authentication;
+$autenticacion = new \App\Auth\Authentication;
 
 $requireAuthentication = $rutesConfig['requireAuthentication'] ?? false;
 if ($requireAuthentication && !$autenticacion->isAuthenticated()) {
@@ -81,7 +82,7 @@ if ($requireAuthentication && !$autenticacion->isAuthenticated()) {
                     <a class="nav-link" href="index.php?s=products">Productos</a>
                     <p>
                         <form action="actions/log-out.php" method="post">
-                            <button class="nav-link" type="submit">Cerrar sesión</button>
+                            <button class="nav-link" type="submit"><?= $autenticacion->getVendedor()->getEmail() ?> (Cerrar sesión)</button>
                         </form>
                     </p>
                 </div>

@@ -1,17 +1,13 @@
-Carrera: Diseño y Programacion Web.
-
-Materia: Programacion II.
-
-Cuatrimestre: 3er cuatrimestre.
-
-Año: 2° Año.
-
-Turno: Mañana.
-
-Comisión: DWM3AP.
-
 Alumnos: Juan Cruz Cagnoni, Imanol Castro Gamero, Olivia Ferrari.
-
+Carrera: Diseño y Programacion Web.
+Materia: Programacion II.
+Cuatrimestre: 3er cuatrimestre.
+Año: 2° Año.
+Turno: Mañana.
+Comisión: DWM3AP.
 Docente: Santiago Gallino.
-
 Caracter de entrega: Segundo parcial.
+
+Iniciar sesión:
+                - Email: techzone@gmail.com
+                - Password: techzone123

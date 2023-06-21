@@ -1,4 +1,8 @@
 <?php
+namespace App\Database;
+
+use PDO;
+use Exception;
 
 // Esta clase nos da la conexion a la base de datos. 
 class DB

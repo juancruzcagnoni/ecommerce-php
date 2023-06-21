@@ -1,4 +1,6 @@
 <?php
+    use App\Models\Shop;
+
     $product = (new Shop)->byId($_GET['id']);
 
     // Consultamos si hay errores en la session.

@@ -1,9 +1,12 @@
 <?php
+
+use App\Auth\Authentication;
+
 session_start();
 
-require_once __DIR__ . '/../../classes/DB.php';
-require_once __DIR__ . '/../../classes/Vendedor.php';
-require_once __DIR__ . '/../../classes/Authentication.php';
+require_once __DIR__ . '/../../classes/Database/DB.php';
+require_once __DIR__ . '/../../classes/Models/Vendedor.php';
+require_once __DIR__ . '/../../classes/Auth/Authentication.php';
 
 $email = $_POST['email'];
 $password = $_POST['password'];

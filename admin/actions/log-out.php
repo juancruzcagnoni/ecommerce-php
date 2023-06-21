@@ -1,7 +1,10 @@
 <?php
+
+use App\Auth\Authentication;
+
 session_start();
 
-require_once __DIR__ . '/../../classes/Authentication.php';
+require_once __DIR__ . '/../../classes/Auth/Authentication.php';
 
 (new Authentication)->logOut();
 

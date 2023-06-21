@@ -1,6 +1,8 @@
 <?php
 
-require_once __DIR__ . "/../classes/Shop.php";
+use App\Models\Shop;
+
+require_once __DIR__ . "/../classes/Models/Shop.php";
 // Pedimos el id del producto que nos piden mostrar.
 $id = $_GET['id'];
 $product = (new Shop)->byId($id);

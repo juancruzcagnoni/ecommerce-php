@@ -1,4 +1,6 @@
 <?php
+    use App\Models\Shop;
+    
     $products = (new Shop)->all();
 ?>
 

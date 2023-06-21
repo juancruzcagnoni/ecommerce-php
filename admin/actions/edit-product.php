@@ -1,11 +1,23 @@
 <!-- Aqui creamos un nuevo producto en la tabla de la base de datos. -->
 <?php
 // Session start para generar mensajes de feedback.
+
+use App\Auth\Authentication;
+use App\Models\Shop;
+
 session_start();
 
 // Incluimos las classes.
-require_once __DIR__ . '/../../classes/DB.php';
-require_once __DIR__ . '/../../classes/Shop.php';
+require_once __DIR__ . '/../../classes/Database/DB.php';
+require_once __DIR__ . '/../../classes/Models/Shop.php';
+require_once __DIR__ . '/../../classes/Auth/Authentication.php';
+
+// Verificamos que el usuario este autenticado.
+if (!(new Authentication)->isAuthenticated()) {
+    $_SESSION['mensajeError'] = 'Se requiere iniciar sesion para realizar esta accion.';
+    header("Location: ../index.php?s=log-in");
+    exit;
+}
 
 // Capturamos los datos de el formulario. 
 $id           = $_GET['id'];
