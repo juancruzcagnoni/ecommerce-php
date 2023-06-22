@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-06-2023 a las 19:59:53
+-- Tiempo de generación: 22-06-2023 a las 03:19:20
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.0.25
 
@@ -65,7 +65,7 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`producto_id`, `vendedor_fk`, `nombre`, `descripcion`, `precio`, `stock`, `imagen`, `imagen_desc`) VALUES
-(6, 1, 'Iphone 12', 'El iPhone 12 tiene una espectacular pantalla Super Retina XDR de 6.1 pulgadas. Un frente de Ceramic Shield, cuatro veces más resistente a las caídas. Modo Noche en todas las cámaras, para que puedas tomar fotos increíbles con poca luz. Grabación, edición y reproducción de video en Dolby Vision con calidad cinematográfica. Y el potente chip A14 Bionic. Además, es compatible con los nuevos accesorios MagSafe, que se acoplan fácilmente a tu iPhone y permiten una carga inalámbrica más rápida.', 167610, 80, 'iphone-12.png', 'Imagen descriptiva de Iphone 12'),
+(6, 1, 'Iphone 12', 'El iPhone 12 tiene una espectacular pantalla Super Retina XDR de 6.1 pulgadas. Un frente de Ceramic Shield, cuatro veces más resistente a las caídas. Modo Noche en todas las cámaras, para que puedas tomar fotos increíbles con poca luz. Grabación, edición y reproducción de video en Dolby Vision con calidad cinematográfica. Y el potente chip A14 Bionic. Además, es compatible con los nuevos accesorios MagSafe, que se acoplan fácilmente a tu iPhone y permiten una carga inalámbrica más rápida.', 167610, 80, 'img/products/iphone-12.png', 'Imagen descriptiva de Iphone 12'),
 (7, 2, 'Galaxy Watch 5', 'Destinado para fines generales de bienestar y estado físico solamente. No está diseñado para su uso en la detección, diagnóstico o tratamiento de cualquier condición médica o trastorno del sueño. Las medidas son solo para su referencia personal.', 116800, 35, 'img/products/reloj-samsung.png', 'Imagen descriptiva de Galaxy Watch 5'),
 (8, 3, 'Iphone 14 Pro Max', 'El iPhone 14 Pro Max te permite captar detalles increíbles gracias a su cámara gran angular de 48 MP. Además, trae la Dynamic Island y una pantalla siempre activa, para que puedas interactuar con tu iPhone de una forma completamente nueva. Y viene con Detección de Choques, una funcionalidad de seguridad que pide ayuda cuando no estás en condiciones de hacerlo.', 210800, 120, 'img/products/iphone-14.png', 'Imagen descriptiva de Iphone 14 Pro Max'),
 (9, 4, 'Ipad Pro 12.9', 'Este producto combina la potencia y la capacidad de una computadora con la versatilidad y facilidad de uso que solo un iPad puede brindar. Realizar varias tareas a la vez, como editar documentos mientras buscas información en internet o sacarte una selfie, es sumamente sencillo.', 120580, 100, 'img/products/ipad-pro.png', 'Imagen descriptiva de Ipad Pro'),
@@ -125,11 +125,11 @@ CREATE TABLE `vendedores` (
 --
 
 INSERT INTO `vendedores` (`vendedor_id`, `nombre`, `email`, `password`) VALUES
-(1, 'TechZone', 'techzone@gmail.com', 'techzone123'),
-(2, 'DigitalWave', 'digitalwave@gmail.com', 'digitalwave123'),
-(3, 'iPoint', 'ipoint@gmail.com', 'ipoint123'),
-(4, 'CyberGeek', 'cybergeek@gmail.com', 'cybergeek123'),
-(5, 'CodeNinja', 'codeninja@gmail.com', 'codeninja123');
+(1, 'TechZone', 'techzone@gmail.com', '$2y$10$g7sLAiFOv71vjlR2WugTc.W6/tCzoSS9BglWBsUtA.tvxV2fDYgU2'),
+(2, 'DigitalWave', 'digitalwave@gmail.com', '$2y$10$db.ewLGhtjaU9N7jR9A3luN28ScPv3mRclicdKXxcKKraJ.OZ7gDW'),
+(3, 'iPoint', 'ipoint@gmail.com', '$2y$10$Ph3l2LfMooFSjNI224BNNO/JdlswXwqXi9zZ9gfKMcgw3kstnjmKC'),
+(4, 'CyberGeek', 'cybergeek@gmail.com', '$2y$10$.EuoX.HTPFU1Iwsnz/iNKuHU5LPSMEho8IBdjoaZDUDyQ2ciz7W4m'),
+(5, 'CodeNinja', 'codeninja@gmail.com', '$2y$10$wqzq1ybHhR6Nz2WYhZX.2eAISJ8la8yBYm8/i/./dJNyAW0TNCe3i');
 
 --
 -- Índices para tablas volcadas
@@ -176,7 +176,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `producto_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `producto_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedores`

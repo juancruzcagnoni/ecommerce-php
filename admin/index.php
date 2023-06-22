@@ -2,10 +2,7 @@
 <?php
 // Incluimos las classes.
 session_start();
-require_once __DIR__ . '/../classes/Database/DB.php';
-require_once __DIR__ . '/../classes/Models/Shop.php';
-require_once __DIR__ . '/../classes/Models/Vendedor.php';
-require_once __DIR__ . '/../classes/Auth/Authentication.php';
+require_once __DIR__ . '/../bootstrap/autoload.php';
 
 // Define los titulos de cada pagina.
 $rutes = [

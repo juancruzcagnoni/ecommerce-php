@@ -17,17 +17,30 @@ class Shop
 
     /**
      * Obtiene todos los productos.
-     * 
+     * @param array $search
      * @return Shop[]
      */
-    public function all(): array 
+    public function all(array $search = []): array 
     {
         // Traemos los productos de la base de datos.
         $db = (new DB)->getConexion();
 
         $query = "SELECT * FROM productos";
+
+        $conditions = [];
+        $conditionValues = []; 
+        if (count($search) > 0) {
+            foreach($search as $searchData){
+                $conditions[] = $searchData[0] . " " . $searchData[1] . " ?"; 
+
+                $conditionValues[] = $searchData[2];
+            }
+
+            $query .= " WHERE " . implode(' AND ', $conditions);
+        }
+
         $stmt = $db->prepare($query);
-        $stmt->execute();
+        $stmt->execute($conditionValues);
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, Shop::class);
         // Retornamos todos los registros como un array usando fetchAll().

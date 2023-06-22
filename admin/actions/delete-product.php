@@ -5,9 +5,7 @@ use App\Models\Shop;
 
 session_start();
 // Incluimos las classes.
-require_once __DIR__ . '/../../classes/Database/DB.php';
-require_once __DIR__ . '/../../classes/Models/Shop.php';
-require_once __DIR__ . '/../../classes/Auth/Authentication.php';
+require_once __DIR__ . '/../../bootstrap/autoload.php';
 
 // Verificamos que el usuario este autenticado.
 if (!(new Authentication)->isAuthenticated()) {

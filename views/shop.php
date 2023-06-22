@@ -5,15 +5,47 @@
     use App\Models\Shop;
 
     require_once __DIR__ . "/../classes/Models/Shop.php";
+
+    // Parametros de busqueda.
+    $params = [
+        ['stock', '>', 0]
+    ];
+
+    if (!empty($_GET['nombre'])) {
+        $params[] = ['nombre', 'LIKE', '%' . $_GET['nombre'] . '%'];
+    }
+
     // Obtenemos los productos.
-    $products = (new Shop)->all();
+    $products = (new Shop)->all($params);
     ?>
 
     <h1 class="title text-center mt-5">NUESTROS PRODUCTOS</h1>
 
+    <div>
+        <h2>Buscador</h2>
+        <form action="index.php" method="get">
+            <input type="hidden" name="s" value="shop">
+            <div>
+                <label for="nombre">Nombre</label>
+                <input type="search" id="nombre" name="nombre" class="form-control" value="<?= $_GET['nombre'] ?? null; ?>">
+            </div>
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
     <div class="row mb-5">
 
-        <?php foreach ($products as $product) : ?>
+        <?php
+        if (count($products) > 0):
+
+        if(!empty($_GET['nombre'])):
+        ?>
+        <p>Estos son los resultados de tu búsqueda: <b><?= $_GET['nombre']; ?></b></p>
+        <?php
+        endif;
+        
+        foreach ($products as $product) :
+        ?>
 
             <article class="col-md-3 col-12 p-3">
                 <div class="card">
@@ -30,7 +62,14 @@
                 </div>
             </article>
 
-        <?php endforeach; ?>
+        <?php 
+        endforeach; 
+        else:
+        ?>
+        <p>No se encontraron resultados que coincidan con tu busqueda.</p>
+        <?php 
+        endif;
+        ?>
 
     </div>
 </div>
