@@ -4,6 +4,7 @@
 
 use App\Auth\Authentication;
 use App\Models\Shop;
+use Intervention\Image\ImageManagerStatic as Image;
 
 session_start();
 
@@ -71,12 +72,19 @@ if (count($errores) > 0) {
 if (!empty($imagen['tmp_name'])) {
     $nombreImagen = date('YmdHis') . "_" . $imagen['name'];
 
-    move_uploaded_file($imagen['tmp_name'], __DIR__ . '/../../img/products/' . $nombreImagen);
+    // move_uploaded_file($imagen['tmp_name'], __DIR__ . '/../../img/products/' . $nombreImagen);
+
+    // Redimensionamos.
+    Image::make($imagen['tmp_name'])
+        ->fit(400, 400, function($constraint) {
+            $constraint->upsize();
+        })
+        ->save(__DIR__ . '/../../img/products/' . $nombreImagen);
 }
 
 
 // Grabar los datos de el producto.
-try {
+try {   
     (new Shop)->edit($id, [
         'nombre'       => $nombre,
         'descripcion'  => $descripcion,
@@ -92,7 +100,7 @@ try {
     }
 
     // Mensaje de feedback.
-    $_SESSION['mensajeExito'] = '<i class="bi bi-check"></i> El producto <b>' . $nombre . '</b> fue editado exitosamente.';
+    $_SESSION['mensajeExito'] = 'El producto <b>' . $nombre . '</b> fue editado exitosamente.';
 
     // Redireccionamiento.
     header("Location: ../index.php?s=products");

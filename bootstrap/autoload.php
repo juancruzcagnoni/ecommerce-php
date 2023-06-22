@@ -1,4 +1,7 @@
 <?php
+    // Incluimos el autoload de Composer.
+    require_once __DIR__ . '/../vendor/autoload.php';
+
     // Funcion para indicar como deben cargarse las clases que php busque utilizar.
     spl_autoload_register(function(string $className) {
         // Definimos en una variable la ruta al archivo.

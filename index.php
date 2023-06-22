@@ -66,7 +66,7 @@ $rutesConfig = $rutes[$view];
         require 'views/' . $view . '.php';
         ?>
     </main>
-
+    
     <!-- Footer  -->
     <footer class="p-5 footer">
         <div class="row">

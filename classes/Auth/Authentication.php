@@ -36,6 +36,11 @@ class Authentication
         $_SESSION['vendedor_id'] = $vendedor->getVendedorId();
     }
 
+    public function getVendedorId(): ?int{
+        if (!$this->isAuthenticated()) return null;
+        return $_SESSION['vendedor_id'];
+    }
+
     public function getVendedor(): ?Vendedor{
         if (!$this->isAuthenticated()) return null;
 

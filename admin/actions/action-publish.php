@@ -24,6 +24,7 @@ $precio       = $_POST['precio'];
 $stock        = $_POST['stock'];
 $imagen_desc  = $_POST['imagen_desc'];
 $imagen       = $_FILES['imagen'];
+$categorias    = $_POST['categoria  _fk'] ?? [];
 
 // Validamos los datos. 
 $errores = [];
@@ -69,17 +70,18 @@ if (!empty($imagen['tmp_name'])) {
 // Grabar los datos de el producto.
 try {
     (new Shop)->create([
-        'vendedor_fk'  => 1,
+        'vendedor_fk'  => (new Authentication)->getVendedorId(),
         'nombre'       => $nombre,
         'descripcion'  => $descripcion,
         'precio'       => $precio,
         'stock'        => $stock,
         'imagen'       => ('img/products/' . $nombreImagen) ?? null,
         'imagen_desc'  => $imagen_desc,
+        'categorias_fk'=> $categorias,
     ]);
 
     // Mensaje de feedback.
-    $_SESSION['mensajeExito'] = '<i class="bi bi-check"></i> El producto <b>' . $nombre . '</b> fue publicado exitosamente.';
+    $_SESSION['mensajeExito'] = 'El producto <b>' . $nombre . '</b> fue publicado exitosamente.';
 
     // Redireccionamiento.
     header("Location: ../index.php?s=products");

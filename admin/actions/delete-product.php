@@ -19,6 +19,7 @@ $id = $_GET['id'];
 $producto = (new Shop)->byId($id);
 
 if (!$producto) {
+    $_SESSION['mensajeError'] = 'El producto que esta intentando eliminar no existe';
     // Redireccionamos al form.
     header("Location: ../index.php?s=products");
     exit;
@@ -36,6 +37,7 @@ try {
     header("Location: ../index.php?s=products");
     exit;
 } catch (Exception $e) {
+    $_SESSION['mensajeError'] = 'Ocurrio un error inesperado al intentar eliminar la noticia';
     header("Location: ../index.php?s=products");
     exit;
 }
