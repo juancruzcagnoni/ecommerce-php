@@ -24,7 +24,6 @@ $precio       = $_POST['precio'];
 $stock        = $_POST['stock'];
 $imagen_desc  = $_POST['imagen_desc'];
 $imagen       = $_FILES['imagen'];
-$categorias    = $_POST['categoria  _fk'] ?? [];
 
 // Validamos los datos. 
 $errores = [];
@@ -77,7 +76,6 @@ try {
         'stock'        => $stock,
         'imagen'       => ('img/products/' . $nombreImagen) ?? null,
         'imagen_desc'  => $imagen_desc,
-        'categorias_fk'=> $categorias,
     ]);
 
     // Mensaje de feedback.
