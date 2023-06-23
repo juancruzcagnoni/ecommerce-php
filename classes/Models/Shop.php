@@ -16,6 +16,9 @@ class Shop
     private ?string $imagen;
     private ?string $imagen_desc;
 
+    // Array para almacernar los ids de las categorias
+    private array $categorias_fks = [];
+
     /**
      * Obtiene todos los productos.
      * @param array $search
@@ -69,7 +72,27 @@ class Shop
 
         if (!$producto) return null;
 
+        // Traemos las fks de las categorias.
+        $producto->cargarCategoriasFks();
+
         return $producto;
+    }
+
+    public function cargarCategoriasFks()
+    {
+        $db = (new DB)->getConexion();
+        $query = "SELECT * FROM productos_tienen_categorias
+                    WHERE producto_fk = ?";
+        $stmt = $db->prepare($query);
+        $stmt->execute([$this->getProductId()]);
+
+        $fks = []; 
+
+        while($registro = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $fks[] = $registro['categoria_fk'];
+        }
+
+        $this->setCategoriasFks($fks);
     }
 
     public function create(array $data)
@@ -228,5 +251,15 @@ class Shop
     public function setImagenDescripcion(?string $imagen_desc)
     {
         $this->imagen_desc = $imagen_desc;
+    }
+
+    public function getCategoriasFks(): array
+    {
+        return $this->categorias_fks;
+    }
+
+    public function setCategoriasFks(array $categorias_fks)
+    {
+        $this->categorias_fks = $categorias_fks;
     }
 }

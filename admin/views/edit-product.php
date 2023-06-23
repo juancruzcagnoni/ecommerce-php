@@ -1,5 +1,6 @@
 <?php
     use App\Models\Shop;
+    use App\Models\Categoria;
 
     $product = (new Shop)->byId($_GET['id']);
 
@@ -18,6 +19,12 @@
     } else {
         $oldData = [];
     }
+
+    $categorias = (new Categoria)->all();
+
+    echo '<pre>';
+    print_r($product);
+    echo '</pre>';
 ?>
 
 <section class="publish">
@@ -110,6 +117,21 @@
                     value="<?= $oldData['imagen_desc'] ?? $product->getImagenDescripcion(); ?>"
                 >
             </div>
+
+            <fieldset>
+                <legend>Categorias</legend>
+                <?php foreach($categorias as $categoria):?>
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            name="categoria_fk[]" 
+                            value="<?=$categoria->getCategoriaId();?>"
+                            <?= in_array($categoria->getCategoriaId(), $oldData['categoria_fk'] ?? $product->getCategoriasFks()) ? 'checked' : ''; ?>
+                        >
+                        <?= $categoria->getNombre(); ?>
+                    </label>
+                <?php endforeach; ?>
+            </fieldset>
 
             <button type="submit">Publicar</button>
         </form>
