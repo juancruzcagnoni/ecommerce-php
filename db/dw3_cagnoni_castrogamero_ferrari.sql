@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-06-2023 a las 21:15:23
+-- Tiempo de generación: 23-06-2023 a las 15:34:52
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.0.25
 
@@ -79,10 +79,7 @@ INSERT INTO `productos` (`producto_id`, `vendedor_fk`, `nombre`, `descripcion`, 
 (14, 4, 'Imac Pro', 'La iMac Pro es una computadora de escritorio todo-en-uno diseñada por Apple para usuarios profesionales que requieren un alto rendimiento en tareas de edición de video, animación, diseño gráfico y otras aplicaciones exigentes. Cuenta con una pantalla Retina 5K de 27 pulgadas, procesador Intel Xeon de hasta 18 núcleos, memoria RAM de hasta 256 GB y almacenamiento SSD de hasta 4 TB. Además, incorpora una tarjeta gráfica Radeon Pro Vega con hasta 16 GB de memoria HBM2.', 290560, 40, 'img/products/imac-pro.png', 'Imagen descriptiva de Imac Pro'),
 (15, 5, 'Canon EOS 500D', 'La Canon EOS 500D es una cámara réflex digital de nivel medio que ofrece una excelente calidad de imagen y una gran variedad de características avanzadas. Esta cámara cuenta con un sensor CMOS de 15.1 megapíxeles y un sistema de enfoque automático de 9 puntos que permite un enfoque rápido y preciso en una amplia variedad de situaciones.', 390760, 15, 'img/products/camara-canon.png', 'Imagen descriptiva de Camara Canon'),
 (16, 1, 'Samsung Galaxy S7', 'Esta tablet Samsung es la compañera ideal, con capacidad de sobra para cada una de tus actividades. El diseño delgado, compacto y portátil, con facilidad para sostener en una mano, lo convierte en una combinación perfecta de rendimiento y versatilidad.', 230460, 30, 'img/products/tablet-samsung.png', 'Imagen descriptiva de Tablet Samsung Galaxy S7'),
-(17, 2, 'Galaxy S23 Ultra', 'Samsung Galaxy S23 Ultra con un procesador Octa-Core (3.36GHz, 2.8GHz, 2GHz) para que estés al día con todas las aplicaciones y juegos de última generación. Descubre todas las posibilidades para tus fotos, tanto de día como de noche, con la cámara de 200+10+10 MP. Memoria interna de 512 GB.', 360780, 100, 'img/products/galaxy-ultra.png', 'Imagen descriptiva de Galaxy S23 Ultra'),
-(62, 1, 'sadasd', 'asdda', 21, 123, 'img/products/20230622205857_IMG_4265.png', 'saddasd'),
-(63, 2, 'adasd', 'asdsd', 12, 12, 'img/products/', ''),
-(64, 4, '221', '12', 21, 0, 'img/products/', '');
+(17, 2, 'Galaxy S23 Ultra', 'Samsung Galaxy S23 Ultra con un procesador Octa-Core (3.36GHz, 2.8GHz, 2GHz) para que estés al día con todas las aplicaciones y juegos de última generación. Descubre todas las posibilidades para tus fotos, tanto de día como de noche, con la cámara de 200+10+10 MP. Memoria interna de 512 GB.', 360780, 100, 'img/products/galaxy-ultra.png', 'Imagen descriptiva de Galaxy S23 Ultra');
 
 -- --------------------------------------------------------
 
@@ -101,17 +98,25 @@ CREATE TABLE `productos_tienen_categorias` (
 
 INSERT INTO `productos_tienen_categorias` (`producto_fk`, `categoria_fk`) VALUES
 (6, 1),
+(6, 6),
 (7, 2),
+(7, 8),
 (8, 1),
+(8, 7),
 (9, 3),
 (10, 1),
 (11, 4),
+(11, 6),
 (12, 2),
 (13, 5),
+(13, 7),
 (14, 5),
+(14, 8),
 (15, 4),
 (16, 3),
-(17, 1);
+(16, 7),
+(17, 1),
+(17, 6);
 
 -- --------------------------------------------------------
 
@@ -182,7 +187,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `producto_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `producto_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedores`

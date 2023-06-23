@@ -100,6 +100,34 @@ body {
 }
 
 // Shop
+.buscador-main{
+  display: flex;
+  justify-content: right;
+  flex-direction: row;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.buscador{
+  display: flex;
+  
+  input{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  button{
+    border: none;
+    background-color: $blue;
+    padding: 0.5rem 1rem;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: $white;
+  }
+}
+
 .card {
   border-radius: 5px;
   height: 100%;

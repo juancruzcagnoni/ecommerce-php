@@ -82,6 +82,32 @@ body {
   margin: 0;
 }
 
+.buscador-main {
+  display: flex;
+  justify-content: right;
+  flex-direction: row;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.buscador {
+  display: flex;
+}
+.buscador input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.buscador button {
+  border: none;
+  background-color: #2841c4;
+  padding: 0.5rem 1rem;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #f7f7f7;
+}
+
 .card {
   border-radius: 5px;
   height: 100%;
