@@ -72,8 +72,6 @@ if (count($errores) > 0) {
 if (!empty($imagen['tmp_name'])) {
     $nombreImagen = date('YmdHis') . "_" . $imagen['name'];
 
-    // move_uploaded_file($imagen['tmp_name'], __DIR__ . '/../../img/products/' . $nombreImagen);
-
     // Redimensionamos.
     Image::make($imagen['tmp_name'])
         ->fit(400, 400, function($constraint) {
