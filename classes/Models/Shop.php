@@ -142,9 +142,20 @@ class Shop
 
     public function eliminar(int $id)
     {
+        // Eliminamos las relaciones con las categorias.
+        $this->desvincularCategorias($id);
+
         $db = (new DB)->getConexion();
         $query = "DELETE FROM productos
                     WHERE producto_id = ?";
+        $stmt = $db->prepare($query);
+        $stmt->execute([$id]);
+    }
+
+    public function desvincularCategorias(int $id): void{
+        $db = (new DB)->getConexion();
+        $query = "DELETE FROM productos_tienen_categorias
+                    WHERE producto_fk = ?";
         $stmt = $db->prepare($query);
         $stmt->execute([$id]);
     }
