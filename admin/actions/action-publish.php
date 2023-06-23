@@ -17,12 +17,19 @@ if (!(new Authentication)->isAuthenticated()) {
     exit;
 }
 
+// echo '<pre>';
+// print_r($_POST);
+// print_r($_FILES);
+// echo '</pre>';
+// exit;
+
 // Capturamos los datos de el formulario. 
 $nombre       = $_POST['nombre'];
 $descripcion  = $_POST['descripcion'];
 $precio       = $_POST['precio'];
 $stock        = $_POST['stock'];
 $imagen_desc  = $_POST['imagen_desc'];
+$categorias   = $_POST['categoria_fk'] ?? [];
 $imagen       = $_FILES['imagen'];
 
 // Validamos los datos. 
@@ -76,6 +83,7 @@ try {
         'stock'        => $stock,
         'imagen'       => ('img/products/' . $nombreImagen) ?? null,
         'imagen_desc'  => $imagen_desc,
+        'categorias_fk'   => $categorias,
     ]);
 
     // Mensaje de feedback.

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-06-2023 a las 15:34:52
+-- Tiempo de generación: 23-06-2023 a las 16:14:23
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.0.25
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categorias` (
-  `categoria_id` int(10) UNSIGNED NOT NULL,
+  `categoria_id` tinyint(3) UNSIGNED NOT NULL,
   `nombre` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -89,7 +89,7 @@ INSERT INTO `productos` (`producto_id`, `vendedor_fk`, `nombre`, `descripcion`, 
 
 CREATE TABLE `productos_tienen_categorias` (
   `producto_fk` int(10) UNSIGNED NOT NULL,
-  `categoria_fk` int(10) UNSIGNED NOT NULL
+  `categoria_fk` tinyint(3) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
@@ -181,7 +181,7 @@ ALTER TABLE `vendedores`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `categoria_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `categoria_id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`

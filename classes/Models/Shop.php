@@ -1,10 +1,11 @@
 <?php
+
 namespace App\Models;
 
 use PDO;
 use App\Database\DB;
 
-class Shop 
+class Shop
 {
     // Definimos las propiedades.
     private int $producto_id;
@@ -20,7 +21,7 @@ class Shop
      * @param array $search
      * @return Shop[]
      */
-    public function all(array $search = []): array 
+    public function all(array $search = []): array
     {
         // Traemos los productos de la base de datos.
         $db = (new DB)->getConexion();
@@ -28,10 +29,10 @@ class Shop
         $query = "SELECT * FROM productos";
 
         $conditions = [];
-        $conditionValues = []; 
+        $conditionValues = [];
         if (count($search) > 0) {
-            foreach($search as $searchData){
-                $conditions[] = $searchData[0] . " " . $searchData[1] . " ?"; 
+            foreach ($search as $searchData) {
+                $conditions[] = $searchData[0] . " " . $searchData[1] . " ?";
 
                 $conditionValues[] = $searchData[2];
             }
@@ -53,7 +54,7 @@ class Shop
      * @param int $id
      * @return Shop|null
      */
-    public function byId(int $id): ?Shop 
+    public function byId(int $id): ?Shop
     {
         $db = (new DB)->getConexion();
 
@@ -66,12 +67,12 @@ class Shop
         $stmt->setFetchMode(PDO::FETCH_CLASS, Shop::class);
         $producto = $stmt->fetch();
 
-        if(!$producto) return null;
+        if (!$producto) return null;
 
         return $producto;
     }
 
-    public function create(array $data) 
+    public function create(array $data)
     {
         $db = (new DB)->getConexion();
         $query = "INSERT INTO productos (vendedor_fk, nombre, descripcion, precio, stock, imagen, imagen_desc)
@@ -86,6 +87,34 @@ class Shop
             'imagen'       => $data['imagen'],
             'imagen_desc'  => $data['imagen_desc'],
         ]);
+
+        // Categorias
+        $productoId = $db->lastInsertId();
+
+        $this->vincularCategorias($productoId, $data['categorias_fk']);
+    }
+
+    public function vincularCategorias(int $productoId, array $categoriasIds): void
+    {
+        // Verificamos que haya categorias
+        if (count($categoriasIds) > 0) {
+            // Preparamos las variables.
+            $valuesList = [];
+            $holdersData = [];
+
+            foreach ($categoriasIds as $categoriaId) {
+                $valuesList[] = "(?, ?)";
+                $holdersData[] = $productoId;
+                $holdersData[] = $categoriaId;
+            }
+
+            // Armamos el query
+            $db = (new DB)->getConexion();
+            $query = "INSERT INTO productos_tienen_categorias (producto_fk, categoria_fk)
+                        VALUES " . implode(', ', $valuesList);
+            $stmt = $db->prepare($query);
+            $stmt->execute($holdersData);
+        }
     }
 
     public function edit(int $id, array $data)

@@ -1,4 +1,6 @@
 <?php
+    use App\Models\Categoria;
+
     // Consultamos si hay errores en la session.
     if (isset($_SESSION['errores'])) {
         $errores = $_SESSION['errores'];
@@ -14,6 +16,12 @@
     } else {
         $oldData = [];
     }
+
+    $categorias = (new Categoria)->all();
+
+    echo '<pre>';
+    print_r($categorias);
+    echo '</pre>';
 ?>
 
 <section class="publish">
@@ -92,6 +100,16 @@
                     value="<?= $oldData['imagen_desc'] ?? null; ?>"
                 >
             </div>
+
+            <fieldset>
+                <legend>Categorias</legend>
+                <?php foreach($categorias as $categoria):?>
+                    <label>
+                        <input type="checkbox" name="categoria_fk[]" value="<?=$categoria->getCategoriaId();?>">
+                        <?= $categoria->getNombre(); ?>
+                    </label>
+                <?php endforeach; ?>
+            </fieldset>
 
             <button type="submit">Publicar</button>
         </form>
