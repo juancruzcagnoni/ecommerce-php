@@ -18,10 +18,6 @@
     }
 
     $categorias = (new Categoria)->all();
-
-    echo '<pre>';
-    print_r($categorias);
-    echo '</pre>';
 ?>
 
 <section class="publish">
@@ -105,7 +101,12 @@
                 <legend>Categorias</legend>
                 <?php foreach($categorias as $categoria):?>
                     <label>
-                        <input type="checkbox" name="categoria_fk[]" value="<?=$categoria->getCategoriaId();?>">
+                        <input 
+                            type="checkbox" 
+                            name="categoria_fk[]" 
+                            value="<?=$categoria->getCategoriaId();?>"
+                            <?= isset($oldData['categoria_fk']) && in_array($categoria->getCategoriaId(), $oldData['categoria_fk']) ? 'checked' : ''; ?>
+                        >
                         <?= $categoria->getNombre(); ?>
                     </label>
                 <?php endforeach; ?>
