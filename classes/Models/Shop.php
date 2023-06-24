@@ -16,8 +16,11 @@ class Shop
     private ?string $imagen;
     private ?string $imagen_desc;
 
-    // Array para almacernar los ids de las categorias
-    private array $categorias_fks = [];
+    
+    /**
+     * @var array|Categoria[]
+     */
+    private array $categorias = [];
 
     /**
      * Obtiene todos los productos.
@@ -72,27 +75,27 @@ class Shop
 
         if (!$producto) return null;
 
-        // Traemos las fks de las categorias.
-        $producto->cargarCategoriasFks();
+        // Traemos las de las categorias.
+        $producto->cargarCategorias();
 
         return $producto;
     }
 
-    public function cargarCategoriasFks()
+    public function cargarCategorias()
     {
         $db = (new DB)->getConexion();
-        $query = "SELECT * FROM productos_tienen_categorias
+        $query = "SELECT 
+                    e.* 
+                    FROM productos_tienen_categorias nte
+                    INNER JOIN categorias e
+                    ON e.categoria_id = nte.categoria_fk
                     WHERE producto_fk = ?";
         $stmt = $db->prepare($query);
         $stmt->execute([$this->getProductId()]);
 
-        $fks = [];
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Categoria::class);
 
-        while ($registro = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $fks[] = $registro['categoria_fk'];
-        }
-
-        $this->setCategoriasFks($fks);
+        $this->setCategorias($stmt->fetchAll());
     }
 
     public function create(array $data)
@@ -259,11 +262,28 @@ class Shop
 
     public function getCategoriasFks(): array
     {
-        return $this->categorias_fks;
+        $fks = [];
+
+        foreach($this->categorias as $categoria) {
+            $fks[] = $categoria->getCategoriaId(); 
+        }
+
+        return $fks;
     }
 
-    public function setCategoriasFks(array $categorias_fks)
+    /**
+     * @return Categoria[]
+     */
+    public function getCategorias(): array
     {
-        $this->categorias_fks = $categorias_fks;
+        return $this->categorias;
+    }
+
+    /**
+     * @param array|Categoria[] $categorias
+     */
+    public function setCategorias(array $categorias)
+    {
+        $this->categorias = $categorias;
     }
 }
