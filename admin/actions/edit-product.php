@@ -25,6 +25,7 @@ $descripcion  = $_POST['descripcion'];
 $precio       = $_POST['precio'];
 $stock        = $_POST['stock'];
 $imagen_desc  = $_POST['imagen_desc'];
+$categorias          = $_POST['categoria_fk'] ?? [];
 $imagen       = $_FILES['imagen'];
 
 $producto = (new Shop)->byId($id);
@@ -90,6 +91,7 @@ try {
         'stock'        => $stock,
         'imagen'       => ('img/products/' . $nombreImagen) ?? $producto->getImage(),
         'imagen_desc'  => $imagen_desc,
+        'categorias_fk'          => $categorias,
     ]);
 
     // Si la imagen fue editada, borramos la imagen vieja.

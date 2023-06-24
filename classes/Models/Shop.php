@@ -86,9 +86,9 @@ class Shop
         $stmt = $db->prepare($query);
         $stmt->execute([$this->getProductId()]);
 
-        $fks = []; 
+        $fks = [];
 
-        while($registro = $stmt->fetch(PDO::FETCH_ASSOC)){
+        while ($registro = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $fks[] = $registro['categoria_fk'];
         }
 
@@ -161,6 +161,9 @@ class Shop
             'imagen_desc'  => $data['imagen_desc'],
             'producto_id'  => $id,
         ]);
+
+        $this->desvincularCategorias($id);
+        $this->vincularCategorias($id, $data['categorias_fk']);
     }
 
     public function eliminar(int $id)
@@ -175,7 +178,8 @@ class Shop
         $stmt->execute([$id]);
     }
 
-    public function desvincularCategorias(int $id): void{
+    public function desvincularCategorias(int $id): void
+    {
         $db = (new DB)->getConexion();
         $query = "DELETE FROM productos_tienen_categorias
                     WHERE producto_fk = ?";

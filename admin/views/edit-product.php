@@ -21,10 +21,6 @@
     }
 
     $categorias = (new Categoria)->all();
-
-    echo '<pre>';
-    print_r($product);
-    echo '</pre>';
 ?>
 
 <section class="publish">
