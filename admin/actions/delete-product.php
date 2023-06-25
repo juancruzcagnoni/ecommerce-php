@@ -8,7 +8,7 @@ session_start();
 require_once __DIR__ . '/../../bootstrap/autoload.php';
 
 // Verificamos que el usuario este autenticado.
-if (!(new Authentication)->isAuthenticated()) {
+if (!(new Authentication)->authenticatedAsAdmin()) {
     $_SESSION['mensajeError'] = 'Se requiere iniciar sesion para realizar esta accion.';
     header("Location: ../index.php?s=log-in");
     exit;

@@ -30,7 +30,7 @@ class Shop
     public function all(array $search = []): array
     {
         // Traemos los productos de la base de datos.
-        $db = (new DB)->getConexion();
+        $db = DB::getConexion();
 
         $query = "SELECT * FROM productos";
 
@@ -62,7 +62,7 @@ class Shop
      */
     public function byId(int $id): ?Shop
     {
-        $db = (new DB)->getConexion();
+        $db = DB::getConexion();
 
         // Uso de holders.
         $query = "SELECT * FROM productos
@@ -83,7 +83,7 @@ class Shop
 
     public function cargarCategorias()
     {
-        $db = (new DB)->getConexion();
+        $db = DB::getConexion();
         $query = "SELECT 
                     e.* 
                     FROM productos_tienen_categorias nte
@@ -100,7 +100,7 @@ class Shop
 
     public function create(array $data)
     {
-        $db = (new DB)->getConexion();
+        $db = DB::getConexion();
         $query = "INSERT INTO productos (vendedor_fk, nombre, descripcion, precio, stock, imagen, imagen_desc)
                     VALUES (:vendedor_fk, :nombre, :descripcion, :precio, :stock, :imagen, :imagen_desc)";
         $stmt = $db->prepare($query);
@@ -135,7 +135,7 @@ class Shop
             }
 
             // Armamos el query
-            $db = (new DB)->getConexion();
+            $db = DB::getConexion();
             $query = "INSERT INTO productos_tienen_categorias (producto_fk, categoria_fk)
                         VALUES " . implode(', ', $valuesList);
             $stmt = $db->prepare($query);
@@ -145,7 +145,7 @@ class Shop
 
     public function edit(int $id, array $data)
     {
-        $db = (new DB)->getConexion();
+        $db = DB::getConexion();
         $query = "UPDATE productos
                     SET nombre        = :nombre,
                         descripcion   = :descripcion,
@@ -174,7 +174,7 @@ class Shop
         // Eliminamos las relaciones con las categorias.
         $this->desvincularCategorias($id);
 
-        $db = (new DB)->getConexion();
+        $db = DB::getConexion();
         $query = "DELETE FROM productos
                     WHERE producto_id = ?";
         $stmt = $db->prepare($query);
@@ -183,7 +183,7 @@ class Shop
 
     public function desvincularCategorias(int $id): void
     {
-        $db = (new DB)->getConexion();
+        $db = DB::getConexion();
         $query = "DELETE FROM productos_tienen_categorias
                     WHERE producto_fk = ?";
         $stmt = $db->prepare($query);

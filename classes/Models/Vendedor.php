@@ -7,6 +7,7 @@ use App\Database\DB;
 class Vendedor
 {
     private int $vendedor_id;
+    private int $rol_fk;
     private ?string $nombre = null;
     private string $email;
     private string $password;
@@ -47,6 +48,20 @@ class Vendedor
         return $vendedor;
     }
 
+    public function create(array $data): void
+    {
+        $db = DB::getConexion();
+        $query = "INSERT INTO vendedores (rol_fk, nombre, email, password)
+                VALUES (:rol_fk, :nombre, :email, :password);";
+        $stmt = $db->prepare($query);
+        $stmt->execute([
+            'rol_fk'    => $data['rol_fk'],
+            'nombre'     => $data['nombre'],
+            'email'     => $data['email'],
+            'password'  => $data['password'],
+        ]);
+    }
+
     public function getVendedorId(): int
     {
         return $this->vendedor_id;
@@ -55,6 +70,16 @@ class Vendedor
     public function setVendedorId(int $vendedor_id): void
     {
         $this->vendedor_id = $vendedor_id;
+    }
+
+    public function getRolFk(): int
+    {
+        return $this->rol_fk;
+    }
+
+    public function setRolFk(int $rol_fk): void
+    {
+        $this->rol_fk = $rol_fk;
     }
 
     public function getNombre(): string

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-06-2023 a las 16:14:23
+-- Tiempo de generación: 25-06-2023 a las 16:39:51
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.0.25
 
@@ -121,11 +121,31 @@ INSERT INTO `productos_tienen_categorias` (`producto_fk`, `categoria_fk`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `rol_id` tinyint(3) UNSIGNED NOT NULL,
+  `nombre` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`rol_id`, `nombre`) VALUES
+(1, 'Administrador'),
+(2, 'Usuario');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `vendedores`
 --
 
 CREATE TABLE `vendedores` (
   `vendedor_id` int(10) UNSIGNED NOT NULL,
+  `rol_fk` tinyint(3) UNSIGNED NOT NULL,
   `nombre` varchar(60) DEFAULT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL
@@ -135,12 +155,12 @@ CREATE TABLE `vendedores` (
 -- Volcado de datos para la tabla `vendedores`
 --
 
-INSERT INTO `vendedores` (`vendedor_id`, `nombre`, `email`, `password`) VALUES
-(1, 'TechZone', 'techzone@gmail.com', '$2y$10$g7sLAiFOv71vjlR2WugTc.W6/tCzoSS9BglWBsUtA.tvxV2fDYgU2'),
-(2, 'DigitalWave', 'digitalwave@gmail.com', '$2y$10$db.ewLGhtjaU9N7jR9A3luN28ScPv3mRclicdKXxcKKraJ.OZ7gDW'),
-(3, 'iPoint', 'ipoint@gmail.com', '$2y$10$Ph3l2LfMooFSjNI224BNNO/JdlswXwqXi9zZ9gfKMcgw3kstnjmKC'),
-(4, 'CyberGeek', 'cybergeek@gmail.com', '$2y$10$.EuoX.HTPFU1Iwsnz/iNKuHU5LPSMEho8IBdjoaZDUDyQ2ciz7W4m'),
-(5, 'CodeNinja', 'codeninja@gmail.com', '$2y$10$wqzq1ybHhR6Nz2WYhZX.2eAISJ8la8yBYm8/i/./dJNyAW0TNCe3i');
+INSERT INTO `vendedores` (`vendedor_id`, `rol_fk`, `nombre`, `email`, `password`) VALUES
+(1, 1, 'TechZone', 'techzone@gmail.com', '$2y$10$g7sLAiFOv71vjlR2WugTc.W6/tCzoSS9BglWBsUtA.tvxV2fDYgU2'),
+(2, 1, 'DigitalWave', 'digitalwave@gmail.com', '$2y$10$db.ewLGhtjaU9N7jR9A3luN28ScPv3mRclicdKXxcKKraJ.OZ7gDW'),
+(3, 1, 'iPoint', 'ipoint@gmail.com', '$2y$10$Ph3l2LfMooFSjNI224BNNO/JdlswXwqXi9zZ9gfKMcgw3kstnjmKC'),
+(4, 1, 'CyberGeek', 'cybergeek@gmail.com', '$2y$10$.EuoX.HTPFU1Iwsnz/iNKuHU5LPSMEho8IBdjoaZDUDyQ2ciz7W4m'),
+(5, 1, 'CodeNinja', 'codeninja@gmail.com', '$2y$10$wqzq1ybHhR6Nz2WYhZX.2eAISJ8la8yBYm8/i/./dJNyAW0TNCe3i');
 
 --
 -- Índices para tablas volcadas
@@ -168,10 +188,17 @@ ALTER TABLE `productos_tienen_categorias`
   ADD KEY `fk_productos_has_categorias_productos1_idx` (`producto_fk`);
 
 --
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`rol_id`);
+
+--
 -- Indices de la tabla `vendedores`
 --
 ALTER TABLE `vendedores`
-  ADD PRIMARY KEY (`vendedor_id`);
+  ADD PRIMARY KEY (`vendedor_id`),
+  ADD KEY `fk_vendedores_roles1_idx` (`rol_fk`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -187,7 +214,13 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `producto_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `producto_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `rol_id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedores`
@@ -211,6 +244,12 @@ ALTER TABLE `productos`
 ALTER TABLE `productos_tienen_categorias`
   ADD CONSTRAINT `fk_productos_has_categorias_categorias1` FOREIGN KEY (`categoria_fk`) REFERENCES `categorias` (`categoria_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_productos_has_categorias_productos1` FOREIGN KEY (`producto_fk`) REFERENCES `productos` (`producto_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `vendedores`
+--
+ALTER TABLE `vendedores`
+  ADD CONSTRAINT `fk_vendedores_roles1` FOREIGN KEY (`rol_fk`) REFERENCES `roles` (`rol_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

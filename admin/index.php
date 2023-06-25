@@ -39,8 +39,8 @@ $rutesConfig = $rutes[$view];
 $autenticacion = new \App\Auth\Authentication;
 
 $requireAuthentication = $rutesConfig['requireAuthentication'] ?? false;
-if ($requireAuthentication && !$autenticacion->isAuthenticated()) {
-    $_SESSION['mensajeError'] = 'Se requiere que inicie sesión para acceder a esta pantalla.';
+if ($requireAuthentication && !$autenticacion->authenticatedAsAdmin()) {
+    $_SESSION['mensajeError'] = 'Se requiere que inicie sesión como administrador para acceder a esta pantalla.';
     header ("Location: index.php?s=log-in");
     exit;
 }
@@ -73,7 +73,7 @@ if ($requireAuthentication && !$autenticacion->isAuthenticated()) {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <?php if ($autenticacion->isAuthenticated()):?>
+                <?php if ($autenticacion->authenticatedAsAdmin()):?>
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link" href="index.php?s=dashboard">Tablero</a>
                     <a class="nav-link" href="index.php?s=products">Productos</a>

@@ -1,5 +1,10 @@
 <!-- PHP -->
 <?php
+
+use App\Auth\Authentication;
+
+session_start();
+
 // Incluimos las classes.
 require_once __DIR__ . '/bootstrap/autoload.php';
 
@@ -17,11 +22,30 @@ $rutes = [
     'contact' => [
         'title' => 'Contactate',
     ],
+    'sign-up' => [
+        'title' => 'Registrate',
+    ],
+    'log-in' => [
+        'title' => 'Iniciar sesion',
+    ],
+    'profile' => [
+        'title' => 'Perfil',
+        'requiereAutenticacion' => true,
+    ],
 ];
 
 $view = $_GET['s'] ?? 'home';
 
 $rutesConfig = $rutes[$view];
+
+// Autenticamos
+$autenticacion = new Authentication;
+$requiereAutenticacion = $rutesConfig['requiereAutenticacion'] ?? false;
+if ($requiereAutenticacion && !$autenticacion->isAuthenticated()) {
+    $_SESSION['mensajeError'] = 'Se requiere iniciar sesion';
+    header('Location: index.php?s=log-in');
+    exit;
+}
 ?>
 
 <!-- HTML -->
@@ -55,10 +79,40 @@ $rutesConfig = $rutes[$view];
                     <a class="nav-link" href="index.php?s=shop">Tienda</a>
                     <a class="nav-link" href="index.php?s=contact">Contacto</a>
                     <a class="nav-link"><i class="bi bi-bag"></i></a>
+                    <?php if(!$autenticacion->isAuthenticated()):?>
+                    <a class="nav-link" href="index.php?s=log-in">Iniciar Sesion</a>
+                    <a class="nav-link" href="index.php?s=sign-up">Registrate</a>
+                    <?php else: ?>
+                    <a class="nav-link" href="index.php?s=profile">Mi perfil</a>
+                    <p>
+                        <form action="actions/log-out.php" method="post">
+                            <button class="nav-link" type="submit"><?= $autenticacion->getVendedor()->getEmail() ?> (Cerrar sesión)</button>
+                        </form>
+                    </p>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
     </nav>
+
+    <!-- Mensajes de feedback -->
+    <?php
+        if (isset($_SESSION['mensajeExito'])):
+    ?>
+    <div class="success"><?= $_SESSION['mensajeExito'];?></div>
+    <?php
+        unset($_SESSION['mensajeExito']);
+        endif;
+    ?>
+
+    <?php
+        if (isset($_SESSION['mensajeError'])):
+    ?>
+    <div class="fail"><?= $_SESSION['mensajeError'];?></div>
+    <?php
+        unset($_SESSION['mensajeError']);
+        endif;
+    ?>
 
     <!-- Content  -->
     <main class="main-content">

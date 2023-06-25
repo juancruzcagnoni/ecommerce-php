@@ -25,20 +25,31 @@ class Authentication
     }
     
     public function logOut(): void{
-        unset($_SESSION['vendedor_id']);
+        unset($_SESSION['vendedor_id'], $_SESSION['rol_fk']);
     }
     
     public function isAuthenticated(): bool{
         return isset($_SESSION['vendedor_id']);
     }
 
+    public function authenticatedAsAdmin(): bool{
+        return $this->isAuthenticated() && $this->getVendedorRol() === 1;
+    }
+
     public function markAsAuthenticated(Vendedor $vendedor): void{
         $_SESSION['vendedor_id'] = $vendedor->getVendedorId();
+        $_SESSION['rol_fk'] = $vendedor->getRolFk();
     }
 
     public function getVendedorId(): ?int{
         if (!$this->isAuthenticated()) return null;
         return $_SESSION['vendedor_id'];
+    }
+
+    public function getVendedorRol(): ?int{
+        if (!$this->isAuthenticated()) return null;
+
+        return $_SESSION['rol_fk'];
     }
 
     public function getVendedor(): ?Vendedor{
